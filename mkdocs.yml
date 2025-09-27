@@ -4,5 +4,10 @@ theme:
 nav:
   - Core Python: core_python.md
   - Another Section: another_section.md
-  - Home: index.md
+  - Скоро удалим: to_be_deleted.md
+
+plugins:
+  - search
+  - open-in-new-tab:
+      add_icon: True
 
