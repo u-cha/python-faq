@@ -1,0 +1,8 @@
+site_name: Python FAQ
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Section: section.md
+  - Another Section: another_section.md
+
