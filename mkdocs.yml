@@ -2,7 +2,7 @@ site_name: Python FAQ
 theme:
   name: material
 nav:
-  - Home: index.md
-  - Section: section.md
+  - Core Python: core_python.md
   - Another Section: another_section.md
+  - Home: index.md
 
