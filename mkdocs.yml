@@ -9,7 +9,6 @@ nav:
   - Инструменты:
     - Системы управления зависимостями: dependency_managers.md
     - Линтеры: linters.md
-  - Скоро удалим: to_be_deleted.md
 
 plugins:
   - search
