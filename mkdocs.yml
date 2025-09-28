@@ -1,7 +1,6 @@
 site_name: Python FAQ
 theme:
   name: material
-  logo: img/python_faq_small.jpg й
 nav:
   - Core Python: core_python.md
   - Фреймворки: frameworks.md
