@@ -1,9 +1,15 @@
 site_name: Python FAQ
 theme:
   name: material
+  logo: img/python_faq_small.jpg й
 nav:
   - Core Python: core_python.md
-  - Another Section: another_section.md
+  - Фреймворки: frameworks.md
+  - Тестирование: testing.md
+  - Очереди сообщений: message_queues.md
+  - Инструменты:
+    - Системы управления зависимостями: dependency_managers.md
+    - Линтеры: linters.md
   - Скоро удалим: to_be_deleted.md
 
 plugins:
