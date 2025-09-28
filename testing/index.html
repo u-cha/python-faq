@@ -9,8 +9,10 @@
       
       
       
+        <link rel="prev" href="../frameworks/">
       
-        <link rel="next" href="../frameworks/">
+      
+        <link rel="next" href="../message_queues/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Core Python - Python FAQ</title>
+        <title>Тестирование - Python FAQ</title>
       
     
     
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#core-python" class="md-skip">
+        <a href="#pytest-unittest" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Core Python
+              Тестирование
             
           </span>
         </div>
@@ -191,32 +193,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Core Python
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../core_python/" class="md-nav__link">
         
   
   
@@ -227,98 +207,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Это вопрос или тема
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Это еще один вопрос
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Это еще один вопрос">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Это подраздел большого вопроса?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Вариантов
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Вариантов">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Много
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Много">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Надо экспериментировать
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -349,10 +237,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../testing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Тестирование
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -363,6 +271,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pytest-unittest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем pytest отличается от unittest?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytestmarkparametrize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое параметризованные тесты (@pytest.mark.parametrize)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое фикстуры? Как их создать?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mock-stub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем mock отличается от stub?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monkey-patching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monkey patching
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -497,8 +468,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -507,74 +476,47 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#pytest-unittest" class="md-nav__link">
     <span class="md-ellipsis">
-      Это вопрос или тема
+      Чем pytest отличается от unittest?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#pytestmarkparametrize" class="md-nav__link">
     <span class="md-ellipsis">
-      Это еще один вопрос
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Это еще один вопрос">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Это подраздел большого вопроса?
+      Что такое параметризованные тесты (@pytest.mark.parametrize)?
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Вариантов
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Вариантов">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Много
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Много">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Надо экспериментировать
+      Что такое фикстуры? Как их создать?
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#mock-stub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем mock отличается от stub?
+    </span>
+  </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#monkey-patching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monkey patching
+    </span>
+  </a>
   
 </li>
       
@@ -594,23 +536,45 @@
 
 
 
-<h1 id="core-python">Вопросы по Core Python</h1>
-<p>Ссылки теперь открываются в новой вкладке, появилась иконка: <a href="https://ya.ru">Яндекс</a></p>
-<p>А вот так можно сделать ссылку внутреннюю <a href="../linters/">ссылку</a></p>
-<h2 id="_1">Это вопрос или тема</h2>
-<p>Вот такой вот ответ по этому вопросу.</p>
-<h2 id="_2">Это еще один вопрос</h2>
-<h6 id="_3">Это подраздел большого вопроса?</h6>
-<h3 id="_4">Вариантов</h3>
-<h4 id="_5">Много</h4>
-<h5 id="_6">Надо экспериментировать</h5>
-<ul>
-<li>Или найти подсказки по синтаксису</li>
-</ul>
-<details>
-  <summary>А может быть можно так?</summary>
-  Вот только не очень понятно, можно ли менять форматирование спойлера.
-</details>
+  <h1>Тестирование</h1>
+
+<h2 id="pytest-unittest">Чем pytest отличается от unittest?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="pytestmarkparametrize">Что такое параметризованные тесты (@pytest.mark.parametrize)?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="_1">Что такое фикстуры? Как их создать?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="mock-stub">Чем mock отличается от stub?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="monkey-patching">Monkey patching</h2>
+<p>Monkey patching — это техника изменения поведения кода во время выполнения путем динамической замены 
+или добавления методов, или атрибутов в существующем объекте. 
+Эта техника может быть полезна в том случае, когда изменения не могут быть внесены в существующий код, 
+и требует минимальных изменений в существующем коде.</p>
+<p>Например, можно добавить новый метод в класс в runtime, который наследуется от базового класса:</p>
+<pre><code>class MyBaseClass:
+    def my_method(self):
+        print('Hello from MyBaseClass')
+
+def monkey_patch():
+    def new_method(self):
+        print('Hello from new_method')
+    MyBaseClass.my_method = new_method
+
+monkey_patch()
+obj = MyBaseClass()
+obj.my_method()  # выведет "Hello from new_method"
+</code></pre>
+<p>В этом примере мы добавляем новый метод <code>new_method()</code> в класс <code>MyBaseClass</code>, используя функцию <code>monkey_patch()</code>. 
+После этого, вызов метода <code>obj.my_method()</code> выведет строку</p>
+<pre><code>Hello from new_method
+</code></pre>
+<p>Важно учитывать, что использование monkey patching может усложнить отладку и поддержку в будущем, 
+поэтому следует использовать эту технику с осторожностью и только при необходимости.</p>
 
 
 

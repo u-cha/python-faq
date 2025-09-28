@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../core_python/">
+        <link rel="prev" href="../testing/">
       
       
-        <link rel="next" href="../to_be_deleted/">
+        <link rel="next" href="../dependency_managers/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Another Section - Python FAQ</title>
+        <title>Очереди сообщений - Python FAQ</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#celery" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -95,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Another Section
+              Очереди сообщений
             
           </span>
         </div>
@@ -210,28 +215,20 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../frameworks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Another Section
+    Фреймворки
     
   </span>
   
 
       </a>
-      
     </li>
   
 
@@ -243,17 +240,186 @@
   
   
     <li class="md-nav__item">
-      <a href="../to_be_deleted/" class="md-nav__link">
+      <a href="../testing/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Скоро удалим
+    Тестирование
     
   </span>
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Очереди сообщений
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Очереди сообщений
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#celery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое Celery и для каких задач он используется?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#celery-rabbitmq-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как Celery взаимодействует с брокерами сообщений (RabbitMQ, Redis)?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Инструменты
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Инструменты
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Системы управления зависимостями
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Линтеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -276,6 +442,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#celery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое Celery и для каких задач он используется?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#celery-rabbitmq-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как Celery взаимодействует с брокерами сообщений (RabbitMQ, Redis)?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -290,9 +482,14 @@
 
 
 
-  <h1>Another Section</h1>
+  <h1>Очереди сообщений</h1>
 
-<p>Hello from python metodichka</p>
+<h2 id="celery">Что такое Celery и для каких задач он используется?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="celery-rabbitmq-redis">Как Celery взаимодействует с брокерами сообщений (RabbitMQ, Redis)?</h2>
+<p>tbd</p>
+<hr />
 
 
 

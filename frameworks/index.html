@@ -1,0 +1,1134 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../core_python/">
+      
+      
+        <link rel="next" href="../testing/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Фреймворки - Python FAQ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/open_in_new_tab.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#orm-django-sqlalchemy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python FAQ" class="md-header__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python FAQ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Фреймворки
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python FAQ" class="md-nav__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python FAQ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Фреймворки
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Фреймворки
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#orm-django-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое ORM? Примеры в Django и SQLAlchemy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Что такое ORM? Примеры в Django и SQLAlchemy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orm-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      ORM в Django:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orm-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      ORM в SQLAlchemy:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django-orm-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные различия между Django ORM и SQLAlchemy:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как работает система аутентификации в Django?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как работает система аутентификации в Django?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#django_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные компоненты системы аутентификации Django:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Основные компоненты системы аутентификации Django:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример использования:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое middleware в Django?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какой паттерн в основе Django?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какой путь проходит запрос в Django
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastapi-vs-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastAPI vs Django: когда что использовать?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django-rest-framework-drf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое Django REST Framework (DRF)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apiview-viewset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разница между APIView и ViewSet?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelserializer-vs-serializer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как работают сериализаторы? (ModelSerializer vs Serializer)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryset-select_related-prefetch_related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как оптимизировать QuerySet? (select_related, prefetch_related)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manytomany" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как реализована связь ManyToMany на уровне БД?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как работают миграции в Django?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как работают сигналы (signals)? Когда их использовать?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какие преимущества дает использование async в FastAPI?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-injection-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Injection в FastAPI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Валидация данных (Pydantic модели)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncpg-aiosqlite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Работа с асинхронными драйверами БД (asyncpg, aiosqlite)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Тестирование
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../message_queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Очереди сообщений
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Инструменты
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Инструменты
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Системы управления зависимостями
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Линтеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#orm-django-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое ORM? Примеры в Django и SQLAlchemy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Что такое ORM? Примеры в Django и SQLAlchemy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orm-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      ORM в Django:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orm-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      ORM в SQLAlchemy:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django-orm-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные различия между Django ORM и SQLAlchemy:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как работает система аутентификации в Django?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как работает система аутентификации в Django?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#django_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные компоненты системы аутентификации Django:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Основные компоненты системы аутентификации Django:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример использования:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое middleware в Django?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какой паттерн в основе Django?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какой путь проходит запрос в Django
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastapi-vs-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastAPI vs Django: когда что использовать?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django-rest-framework-drf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое Django REST Framework (DRF)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apiview-viewset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разница между APIView и ViewSet?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelserializer-vs-serializer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как работают сериализаторы? (ModelSerializer vs Serializer)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryset-select_related-prefetch_related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как оптимизировать QuerySet? (select_related, prefetch_related)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manytomany" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как реализована связь ManyToMany на уровне БД?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как работают миграции в Django?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как работают сигналы (signals)? Когда их использовать?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какие преимущества дает использование async в FastAPI?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-injection-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Injection в FastAPI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Валидация данных (Pydantic модели)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncpg-aiosqlite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Работа с асинхронными драйверами БД (asyncpg, aiosqlite)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Фреймворки</h1>
+
+<h2 id="orm-django-sqlalchemy">Что такое ORM? Примеры в Django и SQLAlchemy</h2>
+<p>ORM (Object-Relational Mapping) — это технология, которая позволяет взаимодействовать с базами данных, 
+используя объекты, а не писать SQL-запросы напрямую. Вместо того чтобы писать SQL для выборки данных, 
+ORM позволяет работать с объектами Python, которые соответствуют строкам в таблицах базы данных. 
+Django и SQLAlchemy - два популярных инструмента Python, использующие ORM. </p>
+<h3 id="orm-django">ORM в Django:</h3>
+<p>Django ORM является частью фреймворка Django и позволяет работать с базой данных через объекты Python. 
+Вот пример:</p>
+<pre><code># Модель (определяет таблицу в базе данных)
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    publication_date = models.DateField()
+
+# Создание объекта
+book = Book(title="Война и мир", author="Толстой", publication_date="1869-01-01")
+book.save()
+
+# Получение объекта
+first_book = Book.objects.first()
+print(first_book.title) # Вывод: Война и мир
+
+# Фильтрация
+books_by_tolstoy = Book.objects.filter(author="Толстой")
+print(books_by_tolstoy.count()) # Вывод: количество книг Толстого
+
+# Обновление
+first_book.title = "Война и мир (полное издание)"
+first_book.save()
+</code></pre>
+<h3 id="orm-sqlalchemy">ORM в SQLAlchemy:</h3>
+<p>SQLAlchemy — это отдельная библиотека, которая может быть использована с Django или без него. 
+Она предоставляет более гибкий и мощный подход к ORM, чем Django ORM, особенно для сложных запросов. 
+Python</p>
+<pre><code>from sqlalchemy import create_engine, Column, Integer, String, Date
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
+
+# Создание движка базы данных
+engine = create_engine('sqlite:///:memory:') # Пример использования in-memory базы данных
+Base = declarative_base()
+
+# Определение моделей
+class Author(Base):
+    __tablename__ = 'authors'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    books = relationship("Book", back_populates="author") # Отношение один-ко-многим
+
+    def __repr__(self):
+        return f"&lt;Author(name='{self.name}')&gt;"
+
+class Book(Base):
+    __tablename__ = 'books'
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    publication_date = Column(Date)
+    author_id = Column(Integer, ForeignKey('authors.id')) # Внешний ключ
+    author = relationship("Author", back_populates="books")
+
+    def __repr__(self):
+        return f"&lt;Book(title='{self.title}', author='{self.author.name}')&gt;"
+
+Base.metadata.create_all(engine)
+
+# Создание сессии
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# Создание объектов
+author1 = Author(name="Толстой")
+book1 = Book(title="Война и мир", publication_date="1869-01-01", author=author1)
+session.add_all([author1, book1])
+session.commit()
+
+# Получение данных
+author = session.query(Author).filter_by(name="Толстой").first()
+print(author.books) # Вывод: [&lt;Book(title='Война и мир', author='Толстой')&gt;]
+
+# Фильтрация и сортировка
+books = session.query(Book).filter(Book.publication_date &gt; "1860-01-01").order_by(Book.title).all()
+print(books)
+</code></pre>
+<h3 id="django-orm-sqlalchemy">Основные различия между Django ORM и SQLAlchemy:</h3>
+<ul>
+<li>Гибкость:
+SQLAlchemy предоставляет более гибкий и мощный API, позволяя создавать сложные запросы, 
+в то время как Django ORM удобен для более простых операций. </li>
+<li>Отдельная библиотека:
+SQLAlchemy - это отдельная библиотека, а Django ORM - часть фреймворка Django.</li>
+</ul>
+<h2 id="django">Как работает система аутентификации в Django?</h2>
+<p>Система аутентификации Django обеспечивает проверку подлинности пользователей и 
+управление доступом к ресурсам. Она включает в себя модель пользователя, middleware 
+для обработки запросов и представлений для управления входом, выходом и другими операциями 
+с учетными записями. Аутентификация в Django основана на сессиях и cookie, 
+делая атрибут <code>request.user</code> доступным в представлениях, который содержит информацию о текущем пользователе. </p>
+<h3 id="django_1">Основные компоненты системы аутентификации Django:</h3>
+<ol>
+<li>Модель пользователя (User Model):
+Django предоставляет стандартную модель пользователя, которая включает поля для хранения 
+информации о пользователе, такой как имя пользователя, пароль, email и т.д. 
+Вы можете расширить эту модель или создать свою собственную. </li>
+<li>Middleware:
+Middleware аутентификации обрабатывает входящие запросы, связывая пользователя 
+с запросом на основе сессии. Он добавляет атрибут request.user к каждому запросу, 
+который может быть использован в представлениях для определения текущего пользователя. </li>
+<li>
+<p>Представления (Views):
+Django предоставляет набор встроенных представлений для работы с аутентификацией:
+<code>LoginView</code>: Для входа в систему.
+<code>LogoutView</code>: Для выхода из системы.
+<code>PasswordChangeView</code>: Для изменения пароля.
+<code>PasswordResetView</code>: Для сброса пароля. </p>
+</li>
+<li>
+<p>Аутентификационные бэкенды:
+Django позволяет использовать различные бэкенды аутентификации, такие как аутентификация 
+по имени пользователя и паролю, аутентификация через социальные сети и т.д. 
+Вы можете настроить используемые бэкенды в настройках проекта. </p>
+</li>
+<li>Разрешения:
+Django предоставляет систему разрешений, которая позволяет управлять доступом 
+к различным частям приложения на основе ролей и прав пользователей. 
+Как работает аутентификация в Django:
+Пользователь отправляет запрос на вход в систему.
+Представление входа, например <code>LoginView</code>, получает данные пользователя (имя пользователя, пароль) и 
+вызывает функцию <code>authenticate()</code>. </li>
+</ol>
+<p><code>authenticate()</code> перебирает настроенные бэкенды аутентификации и 
+пытается аутентифицировать пользователя. Если один из бэкендов успешно аутентифицирует пользователя, 
+возвращается объект пользователя. </p>
+<p>Если аутентификация прошла успешно, Django создает сессию и сохраняет информацию о пользователе в cookie.
+При каждом последующем запросе, middleware аутентификации использует сессию и cookie для определения 
+текущего пользователя и делает его доступным в <code>request.user</code>. </p>
+<p>В представлениях вы можете проверить, аутентифицирован ли пользователь, 
+используя <code>request.user.is_authenticated</code>. </p>
+<p>Вы также можете использовать систему разрешений для контроля доступа к определенным ресурсам или функциям. </p>
+<h6 id="_1">Пример использования:</h6>
+<pre><code>from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+@login_required
+def my_protected_view(request):
+    # Эта функция доступна только для аутентифицированных пользователей
+    return render(request, 'my_template.html', {'user': request.user})
+</code></pre>
+<p>В этом примере, <code>@login_required</code> декоратор гарантирует, что функция <code>my_protected_view</code> доступна 
+только для аутентифицированных пользователей. Если пользователь не аутентифицирован, 
+Django перенаправит его на страницу входа. </p>
+<h2 id="middleware-django">Что такое middleware в Django?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="django_2">Какой паттерн в основе Django?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="django_3">Какой путь проходит запрос в Django</h2>
+<p>tbd</p>
+<hr />
+<h2 id="fastapi-vs-django">FastAPI vs Django: когда что использовать?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="django-rest-framework-drf">Что такое Django REST Framework (DRF)?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="apiview-viewset">Разница между APIView и ViewSet?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="modelserializer-vs-serializer">Как работают сериализаторы? (ModelSerializer vs Serializer)</h2>
+<p>tbd</p>
+<hr />
+<h2 id="queryset-select_related-prefetch_related">Как оптимизировать QuerySet? (select_related, prefetch_related)</h2>
+<p>tbd</p>
+<hr />
+<h2 id="manytomany">Как реализована связь ManyToMany на уровне БД?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="django_4">Как работают миграции в Django?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="signals">Как работают сигналы (signals)? Когда их использовать?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="async-fastapi">Какие преимущества дает использование async в FastAPI?</h2>
+<p>tbd</p>
+<hr />
+<h2 id="dependency-injection-fastapi">Dependency Injection в FastAPI</h2>
+<p>tbd</p>
+<hr />
+<h2 id="pydantic">Валидация данных (Pydantic модели)</h2>
+<p>tbd</p>
+<hr />
+<h2 id="asyncpg-aiosqlite">Работа с асинхронными драйверами БД (asyncpg, aiosqlite)</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
