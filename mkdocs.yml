@@ -9,6 +9,7 @@ nav:
   - Инструменты:
       - Системы управления зависимостями: dependency_managers.md
       - Линтеры: linters.md
+  #- Шаблон: template.md
 
 plugins:
   - search
