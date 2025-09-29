@@ -18,4 +18,6 @@ plugins:
       add_icon: True
   - social
 
+extra:
+  site_description: сайт-методичка Python-FAQ
 
