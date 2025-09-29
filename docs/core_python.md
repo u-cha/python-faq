@@ -1,3 +1,9 @@
+---
+title: Core Python
+description: Вопросы и ответы по Core Python на сайте-методичке Python FAQ.
+---
+
+
 # Core Python
 
 ## Коллекции
