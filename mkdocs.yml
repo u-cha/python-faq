@@ -1,4 +1,5 @@
 site_name: Python FAQ
+site_url: https://u-cha.github.io/python-faq/
 theme:
   name: material
 nav:
