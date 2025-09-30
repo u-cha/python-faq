@@ -1,0 +1,843 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Вопросы и ответы по устройству Python на сайте-методичке Python FAQ.">
+      
+      
+      
+        <link rel="canonical" href="https://u-cha.github.io/python-faq/structure_python/">
+      
+      
+      
+        <link rel="next" href="../collections/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Устройство Python - Python FAQ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/open_in_new_tab.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Устройство Python - Python FAQ" >
+      
+        <meta  property="og:description"  content="Вопросы и ответы по устройству Python на сайте-методичке Python FAQ." >
+      
+        <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/structure_python.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://u-cha.github.io/python-faq/structure_python/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Устройство Python - Python FAQ" >
+      
+        <meta  name="twitter:description"  content="Вопросы и ответы по устройству Python на сайте-методичке Python FAQ." >
+      
+        <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/structure_python.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python FAQ" class="md-header__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python FAQ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Устройство Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python FAQ" class="md-nav__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python FAQ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Core Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Устройство Python
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Устройство Python
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Устройство Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Устройство Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем отличается модуль от пакета
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что происходит при запуске кода в Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Сборщик мусора
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое GIL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Исключения
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разница между is и ==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Копия и глубокая копия
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Коллекции
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Фреймворки
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Тестирование
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../message_queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Очереди сообщений
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Инструменты
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Инструменты
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Системы управления зависимостями
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Линтеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Устройство Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Устройство Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем отличается модуль от пакета
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что происходит при запуске кода в Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Сборщик мусора
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое GIL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Исключения
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разница между is и ==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Копия и глубокая копия
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Устройство Python</h1>
+
+<h2 id="python">Устройство Python</h2>
+<h3 id="_1">Чем отличается модуль от пакета</h3>
+<p>Пакет представляет собой коллекцию модулей, а модуль — файл или набор файлов.</p>
+<p>Вот так импортируется пакет:</p>
+<pre><code>from package import module
+</code></pre>
+<p>А так — модуль:</p>
+<pre><code>import module
+</code></pre>
+<hr />
+<h3 id="python_1">Что происходит при запуске кода в Python</h3>
+<p>Python — интерпретируемый язык программирования, поэтому коду не нужна компиляция. Он выполняется на ходу, но используется промежуточная форма, которая называется компиляцией байт-кода.</p>
+<p>Вот как это происходит под капотом:
+- при первом запуске кода на Python интерпретатор компилирует его в байт-код;
+- после этого виртуальная машина Python (PVM) выполняет его;
+- байт-код хранится в папке pycache, у таких файлов расширение .pyc;
+- периодически Python проверяет, есть ли у файла .py скомпилированный байт-код в формате .pyc. Если его нет или он старше основного файла, то процесс компиляции запускается снова.</p>
+<p>Условный процесс компиляции кода на Python осуществляется с помощью интерпретатора. Полученный байт-код выполняется PVM.</p>
+<hr />
+<h3 id="_2">Сборщик мусора</h3>
+<p>В Python автоматическая сборка мусора. Это значит, что разработчику не надо явно следить за выделением и освобождением памяти. Система сама управляет памятью объектов без ссылок.
+Сборщик мусора запускается периодически и ищет объекты, на которые больше не ссылается ни одна переменная в коде. Затем эти объекты идентифицируются как мусор и удаляются из памяти. Сборщик мусора работает, отслеживая ссылки на объекты в памяти, используя механизм подсчета ссылок. Каждый раз, когда создается новая ссылка на объект, счетчик ссылок для этого объекта увеличивается. Точно так же, когда ссылка удаляется, счетчик ссылок уменьшается.</p>
+<p>Иногда несколько объектов могут ссылаться друг на друга. В этих случаях Python использует функцию обнаружения циклов, которая находит такие объекты и удаляет зацикленные ссылки.</p>
+<hr />
+<h3 id="gil">Что такое GIL</h3>
+<p><strong>GIL (Global Interpreter Lock)</strong> - это механизм, который обеспечивает потокобезопасность интерпретатора. Это особенно важно в контексте многопоточности, поскольку GIL ограничивает выполнение кода только одним потоком за раз. Другими словами, в любой момент времени только один поток может выполняться в одном процессе. Это сделано для предотвращения гонок данных и других проблем, связанных с параллельным доступом к общим ресурсам.
+В любой момент может выполняться только один поток Python. Глобальная блокировка интерпретатора — GIL — тщательно контролирует выполнение тредов. GIL гарантирует каждому потоку эксклюзивный доступ к переменным интерпретатора (и соответствующие вызовы C-расширений работают правильно).
+Принцип работы прост: потоки удерживают GIL, пока выполняются. Однако они освобождают его при блокировании для операций ввода-вывода. Каждый раз, когда поток вынужден ждать, другие, готовые к выполнению потоки, используют свой шанс запуститься.
+Когда поток начинает работу, он выполняет захват GIL. Спустя какое-то время планировщик процессов решает, что текущий поток поработал достаточно, и передает управление следующему потоку. Поток №2 видит, что GIL захвачен, так что он не продолжает работу, а погружает себя в сон, уступая процессор потоку №1.
+Однако, такое поведение GIL может стать причиной проблем с производительностью, особенно на многоядерных системах, где несколько потоков могли бы выполняться параллельно.</p>
+<p>Проблемы, связанные с использованием GIL, включают в себя невозможность полностью использовать потенциал многоядерных систем в Python для параллельного выполнения задач CPU-интенсивного характера. Это ограничение особенно заметно при выполнении вычислительно интенсивных задач, где несколько потоков могли бы значительно ускорить обработку данных, но из-за GIL они вынуждены конкурировать за доступ к общим ресурсам. Кроме того, GIL может стать причиной проблем при разработке многопоточных приложений, так как программистам нужно аккуратно управлять доступом к общим ресурсам, чтобы избежать блокировок и гонок данных.</p>
+<hr />
+<h3 id="_3">Исключения</h3>
+<p>Обработка исключений в Python реализуется с помощью конструкции try—except—finally:</p>
+<p><strong>try</strong>:
+    # Python пробует выполнить эту часть кода
+<strong>except</strong>:
+    # к этому блоку переходит, если не получилось выполнить try
+<strong>finally</strong>:
+    # этот блок выполняется всегда</p>
+<p>Ветка else в конструкции <em>try…except…else</em> будет выполнена только в том случае, если исключения не было возбуждено в блоке try. Если в блоке try произошло исключение, то выполнение программы переходит к соответствующему блоку except, и ветка else пропускается. Если блок except не указан, то исключение будет возбуждено дальше, а программа завершится с сообщением об ошибке.</p>
+<details>
+  <summary>Пример, в котором будет выполнена ветка else</summary>
+    try:
+       # some code here
+    except:
+       # code to handle the exception
+    else:
+       # code to execute if there is no exceptionп
+
+Если в блоке try не возникает исключений, то выполняется код в блоке else.
+</details>
+
+<hr />
+<h3 id="is">Разница между is и ==</h3>
+<p><code>==</code> проверяет, одинаковые ли значения у перменных (проверка равенства значений)</p>
+<p><code>is</code> проверяет, указывают ли переменные на один и тот же объект (проверка идентичности)</p>
+<pre><code>a = [1, 2]
+b = [1, 2]
+
+print(a == b) #True
+print(a is b) #False
+</code></pre>
+<hr />
+<h3 id="_4">Копия и глубокая копия</h3>
+<p><strong>Метод copy()</strong> создает поверхностную копию объекта, то есть создает новый объект, который содержит ссылки на те же объекты, что и исходный объект. Если вы измените какой-либо из этих объектов, изменения отразятся и на копии, и на исходном объекте.</p>
+<p><strong>Метод deepcopy()</strong> создает глубокую копию объекта, то есть создает новый объект, который содержит копии всех объектов, на которые ссылаются элементы исходного объекта. Если вы измените какой-либо из этих объектов, изменения не отразятся на копии или на исходном объекте.</p>
+<pre><code>import copy
+
+# создание копии объекта
+    new_list = old_list.copy()
+
+# создание глубокой копии объекта
+    new_list = copy.deepcopy(old_list)
+где old_list - исходный список, а new_list - его копия.
+</code></pre>
+<p><em>Примечание</em>: для выполнения глубокого копирования объектов, сами объекты также должны поддерживать копирование. Если объекты в ваших данных не поддерживают копирование, deepcopy() вернет исходный объект, а не его копию.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
