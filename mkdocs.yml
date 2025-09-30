@@ -3,7 +3,9 @@ site_url: https://u-cha.github.io/python-faq/
 theme:
   name: material
 nav:
-  - Core Python: core_python.md
+  - Core Python:
+      - Устройство Python: structure_python.md
+      - Коллекции: collections.md
   - Фреймворки: frameworks.md
   - Тестирование: testing.md
   - Очереди сообщений: message_queues.md
