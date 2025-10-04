@@ -7,6 +7,10 @@ nav:
       - Устройство Python: structure_python.md
       - Коллекции: collections.md
       - Функции и декораторы: functions.md
+      - Итераторы и генераторы: generators.md
+      - Контекстные менеджеры: context_managers.md
+  - ООП Python: oop.md
+  - Многопоточность и асинхронность: async.md
   - Фреймворки: frameworks.md
   - Тестирование: testing.md
   - Очереди сообщений: message_queues.md
