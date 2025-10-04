@@ -1,0 +1,1214 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Вопросы и ответы по асинхронности Python на сайте-методичке Python FAQ.">
+      
+      
+      
+        <link rel="canonical" href="https://u-cha.github.io/python-faq/async/">
+      
+      
+        <link rel="prev" href="../oop/">
+      
+      
+        <link rel="next" href="../frameworks/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Многопоточность и асинхронность - Python FAQ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/open_in_new_tab.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Многопоточность и асинхронность - Python FAQ" >
+      
+        <meta  property="og:description"  content="Вопросы и ответы по асинхронности Python на сайте-методичке Python FAQ." >
+      
+        <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/async.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://u-cha.github.io/python-faq/async/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Многопоточность и асинхронность - Python FAQ" >
+      
+        <meta  name="twitter:description"  content="Вопросы и ответы по асинхронности Python на сайте-методичке Python FAQ." >
+      
+        <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/async.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python FAQ" class="md-header__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python FAQ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Многопоточность и асинхронность
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python FAQ" class="md-nav__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python FAQ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Core Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Устройство Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Коллекции
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Функции и декораторы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Итераторы и генераторы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Контекстные менеджеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ООП Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Многопоточность и асинхронность
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Многопоточность и асинхронность
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем многопоточное приложение отличается от многопроцессорного?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Понятие асинхронности
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Понятие асинхронности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные преимущества асинхронного программирования:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое async/await, для чего они нужны и как их использовать
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Роль GIL в асинхронке
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Роль GIL в асинхронке">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gil_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Влияние GIL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Обходные пути и решения
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модуль threading
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Модуль threading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание и запуск первого потока
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание и запуск второго потока
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-future" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отличие task от future
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-gather-taskgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как запустить несколько tasks (gather, taskgroup)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Семафоры
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Семафоры">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Преимущества использования семафоров:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Фреймворки
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Тестирование
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../message_queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Очереди сообщений
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Инструменты
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Инструменты
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Системы управления зависимостями
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Линтеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем многопоточное приложение отличается от многопроцессорного?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Понятие асинхронности
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Понятие асинхронности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные преимущества асинхронного программирования:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое async/await, для чего они нужны и как их использовать
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Роль GIL в асинхронке
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Роль GIL в асинхронке">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gil_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Влияние GIL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Обходные пути и решения
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модуль threading
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Модуль threading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание и запуск первого потока
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание и запуск второго потока
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-future" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отличие task от future
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-gather-taskgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как запустить несколько tasks (gather, taskgroup)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Семафоры
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Семафоры">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Преимущества использования семафоров:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Многопоточность и асинхронность</h1>
+
+<h2 id="_1">Чем многопоточное приложение отличается от многопроцессорного?</h2>
+<p>Многопоточные приложения выполняются в рамках одного процесса, но разделены на потоки. Это значит, что каждый поток имеет доступ к общим ресурсам: файлам, памяти, сети и ресурсам машины. Многопроцессорные приложения делятся на отдельные процессы. У каждого собственный изолированный набор ресурсов.</p>
+<p>В Python для реализации многопроцессорного подхода используют библиотеки <em>concurrent.futures</em> и <em>multiprocessing</em>, а для многопоточности — <em>threading</em>.
+В многопоточном приложении в Python задачи могут выполняться конкурентно (не параллельно!) в нескольких потоках, но все эти потоки совместно используют ресурсы одного процесса. Потоки в многопоточном приложении имеют общее пространство памяти, что делает передачу данных между ними относительно простой. Однако в Python существует GIL (Global Interpreter Lock), который ограничивает выполнение только одного потока Python-кода в каждый момент времени, что может приводить к проблемам с производительностью при использовании многопоточности для CPU-интенсивных задач.
+С другой стороны, в многопроцессном приложении каждая задача выполняется в собственном процессе, что обеспечивает полную изоляцию между процессами и позволяет использовать несколько ядер процессора для параллельной обработки данных. Поскольку каждый процесс имеет свое собственное пространство памяти, передача данных между процессами обычно осуществляется с использованием механизмов межпроцессного взаимодействия, таких как очереди или сокеты.
+Например, рассмотрим следующий код, который демонстрирует многопроцессное выполнение с использованием модуля multiprocessing:</p>
+<pre><code>import multiprocessing
+
+def worker(num):
+    print('Worker:', num)
+
+if __name__ == '__main__':
+    for i in range(5):
+        p = multiprocessing.Process(target=worker, args=(i,))
+        p.start()
+</code></pre>
+<p>Этот код создает пять процессов, каждый из которых вызывает функцию worker. Каждый процесс выполняется независимо друг от друга, что позволяет использовать все доступные ядра процессора для выполнения задач параллельно.</p>
+<hr />
+<h2 id="_2">Понятие асинхронности</h2>
+<p>Асинхронный код - это подход к написанию кода, который позволяет выполнять несколько задач одновременно в рамках одного потока. Это достигается за счет использования асинхронных функций и корутин. В отличие от синхронного кода, который выполняет каждую задачу последовательно, асинхронный код может запустить несколько задач "параллельно" и организовать их выполнение с помощью итераций и вызовов коллбеков.
+Примером использования асинхронного кода является библиотека asyncio в Python.
+Например, вот простой пример кода, который использует asyncio для запуска нескольких задач одновременно и ожидания их завершения:
+import asyncio</p>
+<pre><code>async def hello():
+    await asyncio.sleep(1)
+    print("Hello")
+
+async def world():
+    await asyncio.sleep(2)
+    print("World")
+
+async def main():
+    await asyncio.gather(hello(), world())
+
+if __name__ == '__main__':
+    asyncio.run(main())
+</code></pre>
+<p>В этом примере мы определяем 3 асинхронные функции: hello(), world() и main(). Функции hello() и world() печатают соответствующие сообщения и ждут 1 и 2 секунды соответственно.
+Функция main() запускает эти две функции одновременно с помощью asyncio.gather() и ждет, пока они завершат свою работу. Затем мы запускаем функцию main() с помощью asyncio.run(). В результате мы получим сообщения "Hello" и "World", каждое через 1 и 2 секунды соответственно, при этом результаты двух задач были получены почти одновременно.</p>
+<h3 id="_3">Основные преимущества асинхронного программирования:</h3>
+<ul>
+<li>Улучшенная отзывчивость: Позволяет обрабатывать множество задач параллельно (конкурентно) без блокировки основного потока исполнения.</li>
+<li>Эффективное использование ресурсов: Позволяет эффективно использовать процессорное время, так как задачи выполняются в моменты ожидания операций ввода/вывода или других блокирующих операций.</li>
+<li>Простота масштабирования: Позволяет легко создавать множество параллельных (конкурентных) задач без создания большого количества потоков или процессов.</li>
+</ul>
+<hr />
+<h2 id="asyncawait">Что такое async/await, для чего они нужны и как их использовать</h2>
+<p><strong>async/await</strong> - это ключевые слова, представленные в Python 3.5 для определения асинхронных функций и вызовов. Они позволяют объявлять асинхронные функции и делать вызовы асинхронных функций в местах, где обычно используется блокирующий вызов.</p>
+<pre><code>import asyncio
+
+async def async_function():
+    await asyncio.sleep(1)
+    print("Асинхронная операция выполнена")
+
+async def main():
+    await async_function()
+
+asyncio.run(main())
+</code></pre>
+<hr />
+<h2 id="gil">Роль GIL в асинхронке</h2>
+<p><strong>GIL</strong> — это мьютекс, который защищает доступ к объектам Python, предотвращая одновременное выполнение байт-кодов Python несколькими потоками. Это означает, что даже в многоядерных системах программа Python может не полностью использовать все доступные ядра, если она ограничена процессором и сильно зависит от потоков.</p>
+<h3 id="gil_1">Влияние GIL</h3>
+<p>GIL может существенно влиять на производительность многопоточных программ Python. Для задач, связанных с вводом-выводом, где потоки проводят большую часть времени в ожидании операций ввода или вывода, GIL оказывает минимальное влияние. Однако для задач, связанных с процессором, которые требуют интенсивных вычислений, GIL может привести к неоптимальной производительности из-за конкуренции потоков.</p>
+<h3 id="_4">Обходные пути и решения</h3>
+<p>Существует несколько стратегий смягчения ограничений, налагаемых GIL:</p>
+<ul>
+<li>Используйте многопроцессорность: Вместо использования потоков вы можете использовать модуль multiprocessing, который создает отдельные процессы, каждый со своим собственным интерпретатором Python и пространством памяти. Этот подход обходит GIL и может в полной мере использовать преимущества нескольких ядер ЦП.</li>
+<li>Используйте внешние библиотеки: Некоторые библиотеки, такие как NumPy, используют собственные расширения, которые освобождают GIL во время вычислительно-интенсивных операций. Это позволяет базовому коду C выполнять многопоточные операции более эффективно.</li>
+<li>Оптимизация кода: Оптимизируйте свой код, чтобы минимизировать время, проведенное в интерпретаторе Python. Уменьшая необходимость в конкуренции потоков, вы можете улучшить производительность многопоточных приложений.</li>
+<li>Асинхронное программирование: Для задач, связанных с вводом-выводом, рассмотрите возможность использования асинхронного программирования с библиотекой asyncio. Этот подход позволяет реализовать параллелизм, не полагаясь на несколько потоков.</li>
+</ul>
+<hr />
+<h2 id="threading">Модуль threading</h2>
+<p>В Python многопоточность обычно реализуется с использованием модуля threading, который предоставляет высокоуровневый интерфейс для создания и управления потоками выполнения. Этот модуль позволяет создавать потоки, которые могут выполняться параллельно в пределах одного процесса. При использовании threading, каждый поток работает в рамках общего пространства памяти процесса, что позволяет им легко обмениваться данными между собой. Однако, из-за использования GIL (Global Interpreter Lock) в Python, многопоточные программы могут испытывать проблемы с параллельным выполнением задач на многоядерных системах. Это ограничение делает многопоточность в Python более подходящей для асинхронных операций ввода/вывода (I/O-bound) или для приложений, где потоки часто блокируются на ожидании ввода/вывода.
+Ниже приведен пример использования модуля threading для создания двух потоков, которые выполняются параллельно:
+    import threading</p>
+<pre><code>def print_numbers(start, end):
+    for i in range(start, end):
+        print(i)
+</code></pre>
+<h3 id="_5">Создание и запуск первого потока</h3>
+<p>thread1 = threading.Thread(target=print_numbers, args=(1, 6))
+thread1.start()</p>
+<h3 id="_6">Создание и запуск второго потока</h3>
+<p>thread2 = threading.Thread(target=print_numbers, args=(6, 11))
+thread2.start()
+В этом примере создаются два потока: первый выводит числа от 1 до 5, а второй - числа от 6 до 10. Оба потока запускаются параллельно, и каждый из них выполняет свою функцию. Модуль threading предоставляет механизмы для синхронизации доступа к общим ресурсам и ожидания завершения выполнения потоков, что позволяет эффективно управлять многопоточными приложениями. Однако стоит помнить о возможных проблемах с синхронизацией и безопасностью при работе с общими ресурсами из нескольких потоков.</p>
+<hr />
+<h2 id="task-future">Отличие task от future</h2>
+<p>В асинхронном программировании на Python, объекты Task и Future представляют собой разные аспекты выполнения асинхронных операций. Future является базовым объектом, представляющим обещание результата асинхронной операции, в то время как Task является конкретной реализацией Future, предназначенной для запуска и управления сопрограммами (coroutines) в цикле событий.</p>
+<p><strong>Future</strong>:</p>
+<ul>
+<li>Представляет собой обещание результата, который будет доступен в будущем.</li>
+<li>Не является исполняемым объектом сам по себе.</li>
+<li>Используется для ожидания завершения асинхронной операции и получения её результата.</li>
+<li>В основном используется для низкоуровневого взаимодействия с асинхронным кодом.</li>
+<li>Может быть создан напрямую, но чаще создается в рамках Task.</li>
+</ul>
+<p><strong>Task</strong>:</p>
+<ul>
+<li>Является подклассом Future и наследует его функциональность.</li>
+<li>Представляет собой конкретную задачу (сопрограмму), запланированную на выполнение в цикле событий.</li>
+<li>Запускает сопрограмму и управляет её жизненным циклом.</li>
+<li>Оборачивает сопрограмму в объект, который можно добавить в цикл событий.</li>
+<li>Позволяет отслеживать состояние выполнения задачи (например, была ли она выполнена, отменена, произошла ли ошибка).</li>
+<li>Обычно создается с помощью функции asyncio.create_task(). </li>
+</ul>
+<p><strong>Future</strong> - это более общий концепт, представляющий обещание результата. <strong>Task</strong> - это конкретный тип Future, предназначенный для управления асинхронными задачами (сопрограммами) в цикле событий. Task оборачивает сопрограмму и делает её доступной для цикла событий, в то время как Future просто представляет собой ожидаемый результат</p>
+<hr />
+<h2 id="tasks-gather-taskgroup">Как запустить несколько tasks (gather, taskgroup)</h2>
+<p>Для запуска нескольких асинхронных задач в Python, в частности, с использованием <strong>gather</strong> и <strong>taskgroup</strong>, можно применить следующие подходы:
+Использование asyncio.gather:</p>
+<pre><code>import asyncio
+
+
+async def my_task(task_id):
+   """
+    Простая асинхронная задача.
+    """
+    print(f"Task {task_id}: Начало")
+    await asyncio.sleep(1)
+   print(f"Task {task_id}: Завершение")
+  return f"Результат Task {task_id}"
+
+
+async def main():
+    """
+    Запуск нескольких задач с использованием asyncio.gather.
+    """
+    tasks = [my_task(i) for i in range(3)]
+    results = await asyncio.gather(*tasks)
+  print("Все задачи завершены.")
+  print(f"Результаты: {results}")
+
+
+if __name__ == "__main__":
+   asyncio.run(main())
+</code></pre>
+<p>В этом примере asyncio.gather(*tasks) одновременно запускает все задачи, переданные в списке tasks, и ждет их завершения. Результаты выполнения каждой задачи собираются в список results. asyncio.gather не обрабатывает ошибки, возникающие внутри задач. Если одна из задач бросит исключение, то остальным задачам будет позволено завершиться, а затем исключение будет переброшено в месте вызова gather.</p>
+<p>Рекомендации:</p>
+<ul>
+<li>Если требуется обработка ошибок, используйте asyncio.create_task и asyncio.wait или asyncio.gather с настройкой return_exceptions=True.</li>
+<li>Для простого запуска и ожидания результатов, asyncio.gather является удобным инструментом.</li>
+<li>Для более гибкого управления задачами, включая обработку исключений и отмену задач, используйте asyncio.create_task и asyncio.wait.
+asyncio.run следует использовать для запуска асинхронного кода из обычной (синхронной) функции. Она создает новый цикл событий и управляет его завершением.</li>
+</ul>
+<hr />
+<h2 id="_7">Семафоры</h2>
+<p>Семафоры в асинхронном программировании, в частности в Python с использованием библиотеки asyncio, служат для управления доступом к общим ресурсам или для ограничения количества одновременно выполняемых асинхронных задач. Они позволяют избежать перегрузки системы и управлять параллельным выполнением задач, обеспечивая более эффективное использование ресурсов. </p>
+<p><strong>Как работают семафоры в asyncio</strong>:</p>
+<ol>
+<li><strong>Создание</strong>:
+Семафор создается с указанием максимального количества задач, которые могут одновременно выполняться. Например, semaphore = asyncio.Semaphore(2) создаст семафор, который позволяет одновременно работать только двум задачам.</li>
+<li><strong>Блокировка и освобождение</strong>:
+Перед выполнением асинхронной задачи, требующей доступа к ресурсу или имеющей ограничение по количеству одновременных запусков, необходимо "захватить" семафор, используя конструкцию async with semaphore:. Это заблокирует семафор, уменьшив его счетчик, и позволит задаче выполняться.</li>
+<li><strong>Ожидание освобождения</strong>:
+Если семафор уже занят (счетчик равен нулю), задача будет ожидать, пока другая задача не освободит его (выполнит release(), увеличив счетчик). После освобождения семафора, задача сможет его захватить и продолжить выполнение.</li>
+<li><strong>Освобождение после выполнения</strong>:
+После завершения выполнения асинхронной задачи, семафор автоматически освобождается (если использовалась конструкция async with), и счетчик семафора увеличивается. </li>
+</ol>
+<p>Пример использования:</p>
+<pre><code>import asyncio
+
+async def worker(name, semaphore):
+   print(f'Задача {name}: ожидает семафор')
+    async with semaphore:
+      print(f'Задача {name}: захватила семафор')
+      await asyncio.sleep(1)
+        print(f'Задача {name}: освобождает семафор')
+
+
+async def main():
+   semaphore = asyncio.Semaphore(2)
+    tasks = [worker(i, semaphore) for i in range(5)]
+   await asyncio.gather(*tasks)
+
+
+if __name__ == "__main__":
+ asyncio.run(main())
+</code></pre>
+<p>В этом примере, несмотря на то, что создано 5 задач, только 2 из них могут выполняться одновременно из-за установленного в семафоре лимита в 2. Остальные задачи будут ожидать, пока одна из двух работающих задач не завершится и не освободит семафор. </p>
+<h3 id="_8">Преимущества использования семафоров:</h3>
+<p><strong>Управление ресурсами</strong>:
+Семафоры позволяют контролировать доступ к ресурсам, которые могут быть ограничены по количеству одновременно использующих их задач (например, соединения с базой данных, файлы).</p>
+<p><strong>Ограничение параллелизма</strong>:
+Семафоры позволяют ограничить количество одновременно выполняемых задач, предотвращая перегрузку системы и обеспечивая более стабильную работу.</p>
+<p><strong>Синхронизация задач</strong>:
+Семафоры могут использоваться для координации выполнения задач, например, для обеспечения того, чтобы определенная задача не начиналась, пока не завершится другая.</p>
+<p><strong>Простота использования</strong>:
+asyncio.Semaphore предоставляет удобный и интуитивно понятный способ управления асинхронным параллелизмом</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

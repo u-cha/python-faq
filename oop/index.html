@@ -1,0 +1,1193 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Вопросы и ответы по ООП Python на сайте-методичке Python FAQ.">
+      
+      
+      
+        <link rel="canonical" href="https://u-cha.github.io/python-faq/oop/">
+      
+      
+        <link rel="prev" href="../context_managers/">
+      
+      
+        <link rel="next" href="../async/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>ООП Python - Python FAQ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/open_in_new_tab.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="ООП Python - Python FAQ" >
+      
+        <meta  property="og:description"  content="Вопросы и ответы по ООП Python на сайте-методичке Python FAQ." >
+      
+        <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/oop.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://u-cha.github.io/python-faq/oop/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="ООП Python - Python FAQ" >
+      
+        <meta  name="twitter:description"  content="Вопросы и ответы по ООП Python на сайте-методичке Python FAQ." >
+      
+        <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/oop.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python FAQ" class="md-header__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python FAQ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ООП Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python FAQ" class="md-nav__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python FAQ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Core Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Устройство Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Коллекции
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Функции и декораторы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Итераторы и генераторы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Контекстные менеджеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ООП Python
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    ООП Python
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Принципы ООП
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Магические методы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Магические методы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какие есть магические методы и для чего они используются?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отличие init() от new()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое MRO?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Миксины
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое slots?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Что такое slots?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Плюсы:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Дескрипторы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classmethod-staticmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classmethod и staticmethod
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Метаклассы
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Многопоточность и асинхронность
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Фреймворки
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Тестирование
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../message_queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Очереди сообщений
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Инструменты
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Инструменты
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Системы управления зависимостями
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Линтеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Принципы ООП
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Магические методы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Магические методы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какие есть магические методы и для чего они используются?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отличие init() от new()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое MRO?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Миксины
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое slots?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Что такое slots?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Плюсы:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Дескрипторы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classmethod-staticmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classmethod и staticmethod
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Метаклассы
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>ООП Python</h1>
+
+<h2 id="_1">Принципы ООП</h2>
+<ul>
+<li>Абстракция</li>
+<li>Наследование</li>
+<li>Инкапсуляция</li>
+<li>Полиморфизм</li>
+</ul>
+<p><strong>Наследование</strong>  — способ создания класса. Его суть заключается в том, что функциональность нового класса наследуются от уже существующего класса. Новый класс называется производным (дочерним). Существующий — базовым (родительским).</p>
+<p><strong>Инкапсуляция</strong> -  мы можем ограничить доступ к методам и переменным, что предотвратит модификацию данных — это и есть инкапсуляция. Приватные атрибуты выделяются нижним подчеркиванием: одинарным _ или двойным __.</p>
+<p><strong>Полиморфизм</strong>  — особенность ООП, позволяющая использовать одну функцию для разных форм (типов данных).</p>
+<p><strong>Абстракция</strong> используется, чтобы скрыть внутренние характеристики функции от пользователей.</p>
+<hr />
+<h2 id="_2">Магические методы</h2>
+<p>Магическими методами называют методы, имена которых начинаются и заканчиваются двойным подчеркиванием. Магические они потому, что почти никогда не вызываются явно. Их вызывают встроенные функции или синтаксические конструкции. Например, функция len() вызывает метод <strong>len</strong>() переданного объекта. Метод <strong>add</strong>(self, other) вызывается автоматически при сложении оператором +.</p>
+<p>Перечислим некоторые магические методы:</p>
+<ul>
+<li><strong>init</strong>: инициализатор класса</li>
+<li><strong>add</strong>: сложение с другим объектом</li>
+<li><strong>eq</strong>: проверка на равенство с другим объектом</li>
+<li><strong>iter</strong>: возвращает итератор</li>
+</ul>
+<h3 id="_3">Какие есть магические методы и для чего они используются?</h3>
+<p>Магические методы (иногда также называемые специальными методами) начинаются и заканчиваются двумя подчеркиваниями (например, <strong><code>__init__()</code></strong>). Они позволяют определить различное поведение для объектов, таких как перегрузка операторов, создание контекстных менеджеров, управление атрибутами и т. д. Вот несколько примеров наиболее часто используемых методов и их назначения:</p>
+<ol>
+<li>
+<p><strong><code>__init__(self, ...)</code>:</strong> Вызывается при создании нового экземпляра класса и используется для инициализации его атрибутов.</p>
+</li>
+<li>
+<p><strong><code>__repr__(self)</code>:</strong> Возвращает "официальное" строковое представление объекта. Это используется для отладки и для получения строкового представления объекта при выводе в интерактивной оболочке.</p>
+</li>
+<li>
+<p><strong><code>__str__(self)</code>:</strong> Возвращает "неформальное" строковое представление объекта. Обычно используется для представления объекта в удобочитаемой форме для конечного пользователя.</p>
+</li>
+<li>
+<p><strong><code>__len__(self)</code>:</strong> Возвращает длину объекта. Это используется, когда объект поддерживает операцию получения длины, например, для строк, списков и т. д.</p>
+</li>
+<li>
+<p><strong><code>__getitem__(self, key)</code>:</strong> Позволяет объекту поддерживать доступ к элементам по индексу, как это делают списки и словари.</p>
+</li>
+<li>
+<p><strong><code>__setitem__(self, key, value)</code>:</strong> Позволяет объекту устанавливать значение элемента по ключу.</p>
+</li>
+<li>
+<p><strong><code>__delitem__(self, key)</code>:</strong> Позволяет объекту удалять элемент по ключу.</p>
+</li>
+<li>
+<p><strong><code>__iter__(self)</code>:</strong> Возвращает итератор для объекта, позволяя его использовать в циклах <code>for</code>.</p>
+</li>
+<li>
+<p><strong><code>__next__(self)</code>:</strong> Вызывается итератором для получения следующего элемента в последовательности.</p>
+</li>
+<li>
+<p><strong><code>__enter__(self)</code>, <code>__exit__(self, exc_type, exc_value, traceback)</code>:</strong> Позволяют объекту быть контекстным менеджером, что позволяет определять действия, которые должны выполняться при входе и выходе из контекста.</p>
+</li>
+</ol>
+<p>Это лишь несколько примеров магических методов, которые можно определить. Они предоставляют мощные средства для определения поведения объектов и делают Python гибким и выразительным.</p>
+<hr />
+<h2 id="init-new">Отличие init() от new()</h2>
+<p>Основное различие между этими двумя методами состоит в том, что <strong><strong>new</strong></strong> обрабатывает создание объекта, а <strong><strong>init</strong></strong> обрабатывает его инициализацию.</p>
+<p><strong><strong>new</strong></strong> вызывается автоматически при вызове имени класса (при создании экземпляра), тогда как <strong><strong>init</strong></strong> вызывается каждый раз, когда экземпляр класса возвращается <strong><strong>new</strong></strong>, передавая возвращаемый экземпляр в <strong><strong>init</strong></strong> в качестве параметра <code>self</code>, поэтому даже если вы сохранили экземпляр где-нибудь глобально/статически и возвращали его каждый раз из <strong><strong>new</strong></strong>, для него все-равно будет каждый раз вызываться <strong><strong>init</strong></strong>.
+Из вышесказанного вытекает что сначала вызывается <strong><strong>new</strong></strong>, а потом <strong><strong>init</strong></strong></p>
+<hr />
+<h2 id="mro">Что такое MRO?</h2>
+<p><strong>Method resolution order</strong> - порядок разрешения методов. Алгоритм, по которому следует искать метод в случае, если у класса два и более родителей.</p>
+<p>В классических классах поиск при наследовании по ссылкам на имена осуществляется в следующем порядке:</p>
+<ol>
+<li>Сначала экземпляр</li>
+<li>Затем его класс</li>
+<li>Далее все суперклассы его класса с обходом сначала с глубину, а затем слева направо</li>
+</ol>
+<hr />
+<h2 id="_4">Миксины</h2>
+<p>В Python <strong>миксины (mixins)</strong> - это классы, предназначенные для добавления функциональности в другие классы через множественное наследование, не являясь при этом самостоятельными классами для создания экземпляров. Они предоставляют набор методов, которые можно "подмешать" к другим классам для расширения их возможностей.</p>
+<p><strong>Назначение</strong>:
+Миксины служат для повторного использования кода и предотвращения дублирования, добавляя определенную функциональность к нескольким классам без создания сложных иерархий наследования. </p>
+<p><strong>Особенности</strong>:
+Миксины обычно не содержат данных (атрибутов), а только методы, определяющие поведение. Они предназначены для использования в качестве "строительных блоков", которые можно комбинировать для создания более сложных классов. </p>
+<p><strong>Использование</strong>:
+Миксины включаются в другие классы через множественное наследование. Например, если у вас есть класс User и вы хотите добавить функциональность логирования, вы можете создать миксин LoggingMixin с методами логирования и унаследовать от него класс User. </p>
+<p><strong>Преимущества</strong>:
+Повторное использование кода: Миксины позволяют избежать дублирования кода, предоставляя общую функциональность для нескольких классов.</p>
+<p><strong>Гибкость</strong>: 
+Они обеспечивают гибкость при проектировании классов, позволяя легко добавлять или изменять функциональность.</p>
+<p>Поддержка чистого кода: Миксины способствуют созданию более читаемого и поддерживаемого кода, разделяя функциональность на отдельные компоненты. </p>
+<p>Пример:</p>
+<pre><code>   class LoggingMixin:
+       def log(self, message):
+           print(f"Logging: {message}")
+
+
+   class User(LoggingMixin):
+       def __init__(self, name):
+           self.name = name
+           self.log(f"User {self.name} created")
+
+
+   def say_hello(self):
+       self.log(f"Hello, my name is {self.name}")
+
+   user = User("Alice")
+   user.say_hello()
+</code></pre>
+<p>В этом примере, LoggingMixin предоставляет метод log, который используется классом User. Класс User при этом несет ответственность только за свою логику, а логирование делегируется LoggingMixin. 
+В заключение: Миксины - это полезный инструмент в Python для создания гибкого, повторно используемого и поддерживаемого кода, позволяющий избегать сложных иерархий наследования и дублирования</p>
+<hr />
+<h2 id="slots">Что такое slots?</h2>
+<p>Это магический метод, который позволяет нам иметь только заданный набор атрибутов в экземпляре класса.
+Атрибут slots в классе Python используется для оптимизации памяти и ускорения работы с объектами класса. Он позволяет явно указать, какие атрибуты объекта будут использоваться, а какие нет.</p>
+<p>Когда вы определяете класс, Python создает для каждого экземпляра этого класса словарь, который содержит все его атрибуты. Это может быть выгодным в том случае, если у вас много различных атрибутов, но может привести к большому расходу памяти, если вы создаете много экземпляров класса с небольшим количеством атрибутов.</p>
+<p>Атрибут slots позволяет определить, какие атрибуты должны быть на самом деле созданы для каждого экземпляра класса, и в какой момент их можно будет получить. Если вы используете атрибут slots, Python уже не будет создавать словарь для каждого экземпляра класса, а будет использовать непосредственно массив атрибутов, что может ускорить работу программы и уменьшить использование памяти.</p>
+<p>Например, если у вас есть класс Person с атрибутами name и age, вы можете определить slots следующим образом:</p>
+<pre><code>class Person:
+    __slots__ = ['name', 'age']
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+</code></pre>
+<p>Таким образом, каждый экземпляр класса Person будет содержать только атрибуты name и age, и никакие другие атрибуты не будут созданы.</p>
+<pre><code class="language-python">class PointSlots:
+
+    __slots__ = ('x','y') # Перечисляем все возможные атрибуты экземпляров класса
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+</code></pre>
+<h3 id="_5">Плюсы:</h3>
+<p><strong>Фиксированность</strong> - после указания <em><code>__slots__</code></em> добавление новых атрибутов в экземпляр класса, кроме уже указанных, невозможно</p>
+<p><strong>Скорость работы программы</strong> - используемая коллекция для хранения имён переменных в <strong>slots</strong> позволяет ускорить работу программы</p>
+<p><strong>Использование памяти</strong> - уменьшение количества занимаемой памяти при использовании <em><code>__slots_</code></em> связано с тем, что в <em><code>__slots__</code></em> хранятся только значения из пространства имён</p>
+<hr />
+<h2 id="_6">Дескрипторы</h2>
+<p>Дескрипторы в Python — это объекты, которые реализуют один или несколько специальных методов: <strong>get</strong>(), <strong>set</strong>() и <strong>delete</strong>(). Они позволяют контролировать доступ к атрибутам класса и определять дополнительное поведение при их получении, изменении или удалении.
+Используются для кэширования, валидации.</p>
+<pre><code>class PositiveValue:
+    def __get__(self, instance, owner):
+        return instance.__dict__.get(self, None)
+
+    def __set__(self, instance, value):
+        if value &lt; 0:
+            raise ValueError("Значение должно быть положительным!")
+        instance.__dict__[self] = value
+
+class MyClass:
+    number = PositiveValue()
+
+obj = MyClass()
+obj.number = 10      # Корректная установка значения
+print(obj.number)    # Выведет: 10
+
+obj.number = -5      # Вызывает ValueError: Значение должно быть положительным!
+</code></pre>
+<p>Дескрипторы — это объекты Python, которые определяют, как другие объекты должны вести себя при доступе к атрибуту. Дескрипторы могут использоваться для реализации протоколов, таких как протокол доступа к атрибутам, протокол дескрипторов и протокол методов.</p>
+<p>Декораторы — это функции Python, которые принимают другую функцию в качестве аргумента и возвращают новую функцию. Декораторы обычно используются для изменения поведения функции без изменения ее исходного кода.</p>
+<p>Разница между дескриптором и декоратором заключается в том, что дескрипторы используются для определения поведения атрибутов объекта, в то время как декораторы используются для изменения поведения функций. Однако, декораторы могут использоваться для реализации протоколов дескрипторов.</p>
+<p>Например, декоратор @property можно использовать для создания дескриптора доступа к атрибутам. Он преобразует метод класса в дескриптор, который позволяет получать, устанавливать и удалять значение атрибута как обычный атрибут объекта.</p>
+<hr />
+<h2 id="classmethod-staticmethod">Classmethod и staticmethod</h2>
+<p><strong><code>classmethod</code></strong> и <strong><code>staticmethod</code></strong> - это специальные декораторы, которые позволяют определять методы в классах с особым поведением. Однако они имеют различия в том, как они обрабатывают аргументы и как они взаимодействуют с экземплярами класса.</p>
+<p><strong>classmethod:</strong></p>
+<ul>
+<li>Декоратор преобразует обычный метод класса в тот, который принимает первым аргументом ссылку на класс (обычно называемый <strong><code>cls</code></strong>).</li>
+<li>Это означает, что метод <strong><code>classmethod</code></strong> может обращаться к атрибутам и вызывать другие методы класса через ссылку на сам класс, а не через экземпляр класса.</li>
+<li>Может использоваться, например, для создания альтернативных конструкторов класса или для работы с классовыми переменными.</li>
+</ul>
+<pre><code class="language-python">class MyClass:
+    class_attribute = 123
+
+    @classmethod
+    def class_method(cls):
+        return cls.class_attribute
+
+print(MyClass.class_method())  # Выведет: 123
+</code></pre>
+<p><strong>staticmethod:</strong></p>
+<ul>
+<li>Декоратор создает метод класса, который не принимает ссылку на сам класс (неявно или явно), и не принимает ссылку на экземпляр класса (обычно называемый <strong><code>self</code></strong>).</li>
+<li>Это означает, что <strong><code>staticmethod</code></strong> является статическим методом и может быть вызван как из класса, так и из экземпляра класса, но не имеет доступа к атрибутам и методам класса или экземпляра.</li>
+<li>Статические методы могут быть полезны для группировки связанных функций внутри класса или для создания методов, которые не требуют доступа к состоянию класса или экземпляра.</li>
+</ul>
+<pre><code class="language-python">class MyClass:
+    @staticmethod
+    def static_method():
+        return &quot;This is a static method&quot;
+
+print(MyClass.static_method())  # Выведет: This is a static method
+</code></pre>
+<p>Основное отличие между <strong><code>classmethod</code></strong> и <strong><code>staticmethod</code></strong> заключается в том, что <strong><code>classmethod</code></strong> принимает ссылку на класс, а <strong><code>staticmethod</code></strong> - нет.</p>
+<hr />
+<h2 id="_7">Метаклассы</h2>
+<p><strong>Метаклассы</strong> — это классы, которые определяют поведение других классов. Они используются для изменения способа, которым Python создает и обрабатывает классы.</p>
+<p>Метаклассы могут быть полезны в следующих случаях:</p>
+<ul>
+<li>при необходимости динамического изменения поведения класса, например, если вы хотите добавить или удалить атрибут или метод класса во время выполнения программы;</li>
+<li>при создании классов из данных, которые не заранее известны. Например, вы можете создавать классы на основе определенных условий во время выполнения программы;</li>
+<li>для создания фреймворков и библиотек, которые нужно настраивать под конкретные требования и при этом сохранить простоту интерфейса.</li>
+<li>Они также могут использоваться для создания классов с определенными свойствами, например, классов, которые автоматически регистрируются в библиотеке или классов, которые автоматически сериализуются и десериализуются для совместимости с другими системами.</li>
+</ul>
+<p>Пример использования метакласса для добавления атрибута к классу:</p>
+<pre><code>class MyMeta(type):
+    def __new__(cls, name, bases, dct):
+        dct['my_attribute'] = 42
+        return super(MyMeta, cls).__new__(cls, name, bases, dct)
+
+class MyClass(metaclass=MyMeta):
+    pass
+
+print(MyClass.my_attribute)
+</code></pre>
+<p>В этом примере создается метакласс MyMeta, который добавляет атрибут my_attribute к любому классу, который использует данный метакласс для своего создания. Затем создается класс MyClass, который использует метакласс MyMeta. При вызове print(MyClass.my_attribute) выводится значение 42, так как этот атрибут был добавлен в момент создания класса.
+Метаклассы - это концепция, которая позволяет контролировать создание классов. Классы являются объектами, и они создаются с помощью других классов, которые называются метаклассами. Вот некоторые ключевые моменты о них:</p>
+<ol>
+<li>
+<p><strong>Классы как объекты:</strong> Классы являются объектами первого класса, что означает, что они могут быть созданы, изменены и переданы как аргументы функций.</p>
+</li>
+<li>
+<p><strong>Типы и метаклассы:</strong> Каждый объект имеет тип, который определяется его классом. Этот класс, определяющий тип объекта, называется метаклассом. По умолчанию для всех классов метаклассом является <em><code>type</code></em>.</p>
+</li>
+<li>
+<p><strong>Использование метаклассов:</strong> Метаклассы можно использовать для изменения поведения создания классов. Это может быть полезно для автоматического добавления методов, проверки атрибутов или изменения наследования классов.</p>
+</li>
+<li>
+<p><strong>Ключевые методы метакласса:</strong> Для создания собственного метакласса обычно определяются методы <em><code>__new__()</code></em> и <em><code>__init__()</code></em>. Метод <em><code>__new__()</code></em> вызывается перед созданием экземпляра класса, а метод <em><code>__init__()</code></em> вызывается после создания экземпляра.</p>
+</li>
+</ol>
+<p>Пример создания метакласса:</p>
+<pre><code>class MyMeta(type):
+    def __new__(cls, name, bases, dct):
+        # Изменяем или расширяем класс
+        dct['custom_attribute'] = 'This is a custom attribute'
+        return super().__new__(cls, name, bases, dct)
+
+class MyClass(metaclass=MyMeta):
+    pass
+
+obj = MyClass()
+print(obj.custom_attribute)  # Вывод: This is a custom attribute
+</code></pre>
+<p>В этом примере <em><code>MyMeta</code></em> - это метакласс, который изменяет класс <em><code>MyClass</code></em>, добавляя к нему новый атрибут <em><code>custom_attribute</code></em>.</p>
+<p>Мы создаём класс для того, чтобы создавать объекты, так? А классы являются объектами. Метакласс это то, что создаёт эти самые объекты. Они являются классами классов, можно представить это себе следующим образом:</p>
+<pre><code>MyClass = MetaClass()
+MyObject = MyClass()
+</code></pre>
+<p>Мы уже видели, что type позволяет делать что-то в таком духе:</p>
+<pre><code>MyClass = type('MyClass', (), {})
+</code></pre>
+<p>Это потому что функция type на самом деле является метаклассом. type это метакласс, который Питон внутренне использует для создания всех классов.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
