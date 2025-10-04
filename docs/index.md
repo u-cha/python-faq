@@ -1,4 +1,7 @@
-# Python FAQ
+---
+title: Python FAQ
+description: Сайт-методичка Python FAQ
+---
 
 ![Target](img/target_small.svg)
 
