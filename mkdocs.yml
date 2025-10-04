@@ -2,6 +2,9 @@ site_name: Python FAQ
 site_url: https://u-cha.github.io/python-faq/
 theme:
   name: material
+  logo: img/pythonfaq.png
+  icon:
+    repo: fontawesome/brands/github
 nav:
   - Core Python:
       - Устройство Python: structure_python.md
@@ -24,6 +27,9 @@ plugins:
   - open-in-new-tab:
       add_icon: True
   - social
+
+repo_url: https://github.com/u-cha/python-faq/
+repo_name: python-faq gh
 
 extra:
   site_description: сайт-методичка Python-FAQ
