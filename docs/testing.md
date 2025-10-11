@@ -1,3 +1,8 @@
+---
+title: Тестирование Python
+description: Вопросы и ответы по тестированию Python на сайте-методичке Python FAQ.
+---
+
 ## Чем pytest отличается от unittest?
 Две самые популярные библиотеки — unittest и pytest.
 
