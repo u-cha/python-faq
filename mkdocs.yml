@@ -20,6 +20,7 @@ nav:
   - Инструменты:
       - Системы управления зависимостями: dependency_managers.md
       - Линтеры: linters.md
+  - Лайвкодинг: livecoding.md
   #- Шаблон: template.md
 
 plugins:
