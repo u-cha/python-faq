@@ -1,0 +1,1376 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Вопросы и ответы по лайвкодингу Python на сайте-методичке Python FAQ.">
+      
+      
+      
+        <link rel="canonical" href="https://u-cha.github.io/python-faq/livecoding/">
+      
+      
+        <link rel="prev" href="../linters/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Лайвкодинг Python - Python FAQ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/open_in_new_tab.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Лайвкодинг Python - Python FAQ" >
+      
+        <meta  property="og:description"  content="Вопросы и ответы по лайвкодингу Python на сайте-методичке Python FAQ." >
+      
+        <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/livecoding.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://u-cha.github.io/python-faq/livecoding/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Лайвкодинг Python - Python FAQ" >
+      
+        <meta  name="twitter:description"  content="Вопросы и ответы по лайвкодингу Python на сайте-методичке Python FAQ." >
+      
+        <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/livecoding.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-n-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python FAQ" class="md-header__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  <img src="../img/pythonfaq.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python FAQ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Лайвкодинг Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/u-cha/python-faq/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-faq gh
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python FAQ" class="md-nav__button md-logo" aria-label="Python FAQ" data-md-component="logo">
+      
+  <img src="../img/pythonfaq.png" alt="logo">
+
+    </a>
+    Python FAQ
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/u-cha/python-faq/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-faq gh
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Core Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Устройство Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Коллекции
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Функции и декораторы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Итераторы и генераторы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Контекстные менеджеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ООП Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Многопоточность и асинхронность
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Фреймворки
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Тестирование
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../message_queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Очереди сообщений
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Инструменты
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Инструменты
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Системы управления зависимостями
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Линтеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Лайвкодинг
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Лайвкодинг
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-n-" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Напишите функцию, которая возвращает n-ное число Фибоначчи
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Напишите функцию, которая возвращает следующий день, относительно переданной даты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Написать генератор для пагинации по списку
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Написать генератор, который сделает из вложенного словаря плоский
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Реализовать класс библиотеки
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-n-" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Напишите функцию, которая возвращает n-ное число Фибоначчи
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Напишите функцию, которая возвращает следующий день, относительно переданной даты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Написать генератор для пагинации по списку
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Написать генератор, который сделает из вложенного словаря плоский
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Реализовать класс библиотеки
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Лайвкодинг</h1>
+
+<h3 id="1-n-">1. Напишите функцию, которая возвращает n-ное число Фибоначчи</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-text">    def fibonacci(n):
+     &quot;&quot;&quot;
+     (Последовательность Фибоначчи: 0, 1, 1, 2, 3, 5, 8, 13, ...)
+     &quot;&quot;&quot;
+        # Ваше решение здесь
+        pass
+
+    # Тесты
+    print(fibonacci(0))  # 0
+    print(fibonacci(1))  # 1
+    print(fibonacci(5))  # 5
+    print(fibonacci(7))  # 13
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Последовательность Фибоначчи - каждое следующее число = сумма двух предыдущих
+2. Есть несколько способов решения:
+    - с помощью рекурсии
+    - с помощью цикла for
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+1. Рекурсивное решение (неэффективное)
+
+<pre><code class="language-python">def fibonacci(n):
+    if n &lt;= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+</code></pre>
+
+
+2. Итеративное решение (оптимальное)
+
+<pre><code class="language-python">
+def fibonacci(n):
+    if n &lt;= 1:
+        return n
+
+    a, b = 0, 1
+    for i in range(2, n + 1):
+        a, b = b, a + b
+    return b
+</code></pre>
+
+3. Генератор чисел Фибоначчи
+
+<pre><code class="language-python">
+def fibonacci_generator(limit):
+    a, b = 0, 1
+    while a &lt;= limit:
+        yield a
+        a, b = b, a + b
+
+# Использование
+for num in fibonacci_generator(20):
+    print(num)  # 0, 1, 1, 2, 3, 5, 8, 13
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="2">2. Напишите функцию, которая возвращает следующий день, относительно переданной даты</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-text">    def get_next_day(date_string):
+        &quot;&quot;&quot;
+        Args:
+           date_string (str): Дата в формате 'YYYY-MM-DD'
+
+        Returns:
+           str: Следующий день в формате 'YYYY-MM-DD'
+        &quot;&quot;&quot;
+
+        # Ваше решение здесь
+        pass
+
+    # Тесты
+    print(get_next_day('2024-01-31'))  # 2024-02-01
+    print(get_next_day('2024-02-28'))  # 2024-02-29
+    print(get_next_day('2023-02-28'))  # 2023-03-01
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Применить datetime, strptime, strftime
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+
+<pre><code class="language-python">from datetime import datetime, timedelta
+
+def get_next_day(date_string):
+    &quot;&quot;&quot;
+    Возвращает следующий день относительно переданной даты.
+
+    Args:
+        date_string (str): Дата в формате 'YYYY-MM-DD'
+
+    Returns:
+        str: Следующий день в формате 'YYYY-MM-DD'
+    &quot;&quot;&quot;
+    current_date = datetime.strptime(date_string, '%Y-%m-%d')
+    next_date = current_date + timedelta(days=1)
+    return next_date.strftime('%Y-%m-%d')
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="3">3. Написать генератор для пагинации по списку</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-text">    def paginate(items: list, page_size:int):
+        &quot;&quot;&quot;
+        Генератор для пагинации по списку.
+
+        Args:
+        items: список элементов
+        page_size: размер страницы
+
+        Yields:
+            списки элементов размером page_size
+        &quot;&quot;&quot;
+
+        # Ваше решение здесь
+        pass
+
+    # Тесты
+    items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    paginator = paginate(items, 3)
+    assert next(paginator) == [1, 2, 3]
+    assert next(paginator) == [4, 5, 6]
+    assert next(paginator) == [7, 8, 9]
+    assert next(paginator) == [10]
+
+    # Проверяем StopIteration
+    try:
+        next(paginator)
+        assert False, &quot;Ожидалось StopIteration&quot;
+    except StopIteration:
+        pass  # Ожидаемое поведение
+
+    for page in paginator:
+        print(page)  # [1, 2, 3], [4, 5, 6], [7, 8, 9], [10]
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Нужно разбить список на части по page_size элементов
+2. Используйте срезы списка: items[start:end]
+3. Шаг между страницами = page_size
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+Вариант 1: Классический с range (самый популярный)
+
+
+<pre><code class="language-python">
+def paginate(items, page_size):
+    for i in range(0, len(items), page_size):
+        yield items[i:i + page_size]
+</code></pre>
+
+Вариант 2: С использованием while цикла
+
+
+<pre><code class="language-python">def paginate(items, page_size):
+    i = 0
+    while i &lt; len(items):
+        yield items[i:i + page_size]
+        i += page_size
+</code></pre>
+
+Вариант 3: С итератором и islice
+
+
+<pre><code class="language-python">
+from itertools import islice
+
+def paginate(items, page_size):
+    iterator = iter(items)
+    while True:
+        chunk = list(islice(iterator, page_size))
+        if not chunk:
+            return
+        yield chunk
+</code></pre>
+
+Вариант 4: Рекурсивный подход
+
+
+<pre><code class="language-python">
+def paginate(items, page_size):
+    if not items:
+        return
+    yield items[:page_size]
+    yield from paginate(items[page_size:], page_size)
+</code></pre>
+
+Вариант 5: С использованием enumerate
+
+
+<pre><code class="language-python">
+def paginate(items, page_size):
+    for i, item in enumerate(items):
+        if i % page_size == 0:
+            yield items[i:i + page_size]
+</code></pre>
+
+Вариант 6: С группировкой по индексу
+
+
+<pre><code class="language-python">
+def paginate(items, page_size):
+    return (items[i:i + page_size] for i in range(0, len(items), page_size))
+</code></pre>
+
+Вариант 7: С проверкой границ
+
+
+<pre><code class="language-python">
+def paginate(items, page_size):
+    if page_size &lt;= 0:
+        raise ValueError(&quot;page_size должен быть положительным&quot;)
+
+    page = []
+    for item in items:
+        page.append(item)
+        if len(page) == page_size:
+            yield page
+            page = []
+
+    if page:  # Последняя неполная страница
+        yield page
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="4">4. Написать генератор, который сделает из вложенного словаря плоский</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-text">    def flatten_dict(nested_dict: dict, parent_key: str = '', separator: str = '.'):
+        &quot;&quot;&quot;
+        Генератор, который преобразует вложенный словарь в плоский.
+
+        Args:
+            nested_dict: вложенный словарь
+            parent_key: ключ родительского элемента (для рекурсии)
+            separator: разделитель между ключами
+
+        Yields:
+            кортежи (ключ, значение) для каждого элемента плоского словаря
+        &quot;&quot;&quot;
+
+        # Ваше решение здесь
+        pass
+
+    # Тесты
+    nested = {
+        'a': 1,
+        'b': {
+            'c': 2,
+            'd': {
+                'e': 3
+            }
+        },
+        'f': 4
+    }
+
+    # Преобразуем в словарь для проверки
+    result = dict(flatten_dict(nested))
+    expected = {
+        'a': 1,
+        'b.c': 2,
+        'b.d.e': 3,
+        'f': 4
+    }
+    assert result == expected
+
+    # Проверяем работу как генератора
+    flat_gen = flatten_dict(nested)
+    assert next(flat_gen) == ('a', 1)
+    assert next(flat_gen) == ('b.c', 2)
+
+    # Проверяем StopIteration
+    try:
+        next(flat_gen)
+        assert False, &quot;Ожидалось StopIteration&quot;
+    except StopIteration:
+        pass
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Нужно обойти все ключи словаря рекурсивно
+2. Если значение является словарем - углубляемся в него
+3. Формируем составной ключ через разделитель
+4. Используйте yield для возврата пар (ключ, значение)
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+Вариант 1: Рекурсивный с yield from
+
+
+<pre><code class="language-python">def flatten_dict(nested_dict: dict, parent_key: str = '', separator: str = '.'):
+    for key, value in nested_dict.items():
+        new_key = f&quot;{parent_key}{separator}{key}&quot; if parent_key else key
+
+        if isinstance(value, dict):
+            yield from flatten_dict(value, new_key, separator)
+        else:
+            yield (new_key, value)
+</code></pre>
+
+Вариант 2: С явным yield для каждого случая
+
+
+<pre><code class="language-python">def flatten_dict(nested_dict: dict, parent_key: str = '', separator: str = '.'):
+    for key, value in nested_dict.items():
+        new_key = f&quot;{parent_key}{separator}{key}&quot; if parent_key else key
+
+        if isinstance(value, dict):
+            for flattened in flatten_dict(value, new_key, separator):
+                yield flattened
+        else:
+            yield (new_key, value)
+</code></pre>
+
+Вариант 3: С обработкой списков и других типов
+
+
+<pre><code class="language-python">def flatten_dict(nested_dict: dict, parent_key: str = '', separator: str = '.'):
+    for key, value in nested_dict.items():
+        new_key = f&quot;{parent_key}{separator}{key}&quot; if parent_key else key
+
+        if isinstance(value, dict):
+            yield from flatten_dict(value, new_key, separator)
+        elif isinstance(value, (list, tuple)):
+            for i, item in enumerate(value):
+                list_key = f&quot;{new_key}[{i}]&quot;
+                if isinstance(item, dict):
+                    yield from flatten_dict(item, list_key, separator)
+                else:
+                    yield (list_key, item)
+        else:
+            yield (new_key, value)
+</code></pre>
+
+Вариант 4: Итеративный с использованием стека
+
+
+<pre><code class="language-python">def flatten_dict(nested_dict: dict, separator: str = '.'):
+    stack = [(nested_dict, '')]
+
+    while stack:
+        current_dict, current_key = stack.pop()
+
+        for key, value in current_dict.items():
+            new_key = f&quot;{current_key}{separator}{key}&quot; if current_key else key
+
+            if isinstance(value, dict):
+                stack.append((value, new_key))
+            else:
+                yield (new_key, value)
+</code></pre>
+
+</details>
+
+<h3 id="5">5. Реализовать класс библиотеки</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-text">    class Library:
+        &quot;&quot;&quot;
+        Простой класс для управления библиотекой книг.
+        &quot;&quot;&quot;
+
+        def __init__(self):
+            &quot;&quot;&quot;Инициализация пустой библиотеки.&quot;&quot;&quot;
+            self.books = []
+
+        def add_book(self, title: str, author: str, year: int):
+            &quot;&quot;&quot;
+            Добавляет книгу в библиотеку.
+
+            Args:
+                title: название книги
+                author: автор книги
+                year: год издания
+            &quot;&quot;&quot;
+            # Ваше решение здесь
+            pass
+
+        def find_by_author(self, author: str) -&gt; list:
+            &quot;&quot;&quot;
+            Находит книги по автору.
+
+            Args:
+                author: автор для поиска
+
+            Returns:
+                список найденных книг
+            &quot;&quot;&quot;
+            # Ваше решение здесь
+            pass
+
+        def get_all_books(self) -&gt; list:
+            &quot;&quot;&quot;
+            Возвращает все книги.
+
+            Returns:
+                список всех книг
+            &quot;&quot;&quot;
+            # Ваше решение здесь
+            pass
+
+    # Тесты
+    library = Library()
+
+    # Добавление книг
+    library.add_book(&quot;Война и мир&quot;, &quot;Лев Толстой&quot;, 1869)
+    library.add_book(&quot;Анна Каренина&quot;, &quot;Лев Толстой&quot;, 1877)
+    library.add_book(&quot;Преступление и наказание&quot;, &quot;Федор Достоевский&quot;, 1866)
+
+    # Поиск по автору
+    tolstoy_books = library.find_by_author(&quot;Лев Толстой&quot;)
+    assert len(tolstoy_books) == 2
+
+    # Получение всех книг
+    all_books = library.get_all_books()
+    assert len(all_books) == 3
+
+    print(&quot;Все тесты пройдены!&quot;)
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Используйте список для хранения книг
+2. Каждая книга - словарь с полями title, author, year
+3. Для поиска используйте фильтрацию списка
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+
+<pre><code class="language-python">class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_book(self, title: str, author: str, year: int):
+        book = {
+            'title': title,
+            'author': author, 
+            'year': year
+        }
+        self.books.append(book)
+
+    def find_by_author(self, author: str) -&gt; list:
+        return [book for book in self.books if book['author'] == author]
+
+    def get_all_books(self) -&gt; list:
+        return self.books.copy()
+</code></pre>
+
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
