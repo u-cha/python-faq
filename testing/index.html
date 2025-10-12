@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Вопросы и ответы по тестированию Python на сайте-методичке Python FAQ.">
+      
       
       
         <link rel="canonical" href="https://u-cha.github.io/python-faq/testing/">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Тестирование - Python FAQ</title>
+        <title>Тестирование Python - Python FAQ</title>
       
     
     
@@ -56,9 +58,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Тестирование - Python FAQ" >
+        <meta  property="og:title"  content="Тестирование Python - Python FAQ" >
       
-        <meta  property="og:description"  content="None" >
+        <meta  property="og:description"  content="Вопросы и ответы по тестированию Python на сайте-методичке Python FAQ." >
       
         <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/testing.png" >
       
@@ -72,9 +74,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Тестирование - Python FAQ" >
+        <meta  name="twitter:title"  content="Тестирование Python - Python FAQ" >
       
-        <meta  name="twitter:description"  content="None" >
+        <meta  name="twitter:description"  content="Вопросы и ответы по тестированию Python на сайте-методичке Python FAQ." >
       
         <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/testing.png" >
       
@@ -127,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Тестирование
+              Тестирование Python
             
           </span>
         </div>
@@ -551,57 +553,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Чем mock отличается от stub?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stub" class="md-nav__link">
-    <span class="md-ellipsis">
-      Характеристики Stub:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stub_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Пример Stub:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mock" class="md-nav__link">
-    <span class="md-ellipsis">
-      Характеристики Mock:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mock_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Пример Mock:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ключевые различия
-    </span>
-  </a>
-  
 </li>
       
         <li class="md-nav__item">
@@ -792,57 +743,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Чем mock отличается от stub?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stub" class="md-nav__link">
-    <span class="md-ellipsis">
-      Характеристики Stub:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stub_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Пример Stub:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mock" class="md-nav__link">
-    <span class="md-ellipsis">
-      Характеристики Mock:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mock_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Пример Mock:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ключевые различия
-    </span>
-  </a>
-  
 </li>
       
         <li class="md-nav__item">
@@ -996,14 +896,14 @@ def test_database_operations(database_connection):
 <h2 id="mock-stub">Чем mock отличается от stub?</h2>
 <p><strong>Mock</strong> и <strong>Stub</strong> - это тестовые дублеры (test doubles), но они служат разным целям и имеют важные различия.</p>
 <p><strong>Stub (Заглушка)</strong> предоставляет предопределенные ответы на вызовы методов.</p>
-<h3 id="stub">Характеристики Stub:</h3>
+<p><strong>Характеристики Stub</strong>:</p>
 <ul>
 <li>Простая замена реального объекта</li>
 <li>Возвращает фиксированные данные</li>
 <li>Не проверяет как используется</li>
 <li>Пассивный - только отвечает на запросы</li>
 </ul>
-<h3 id="stub_1">Пример Stub:</h3>
+<p><strong>Пример Stub</strong>:</p>
 <pre><code class="language-python"># Stub для сервиса погоды
 class WeatherServiceStub:
     def get_temperature(self, city):
@@ -1020,14 +920,12 @@ def test_weather_app():
     assert temp == 20
 </code></pre>
 <p><strong>Mock</strong> - это объект, который регистрирует вызовы своих методов и может проверять их.</p>
-<h3 id="mock">Характеристики Mock:</h3>
-<ul>
-<li>Проверяет взаимодействия</li>
-<li>Запоминает вызовы методов</li>
-<li>Может выбрасывать исключения</li>
-<li>Активный - верифицирует поведение</li>
-</ul>
-<h3 id="mock_1">Пример Mock:</h3>
+<p><strong>Характеристики Mock</strong>:
+- Проверяет взаимодействия
+- Запоминает вызовы методов
+- Может выбрасывать исключения
+- Активный - верифицирует поведение</p>
+<p><strong>Пример Mock</strong>:</p>
 <pre><code class="language-python">from unittest.mock import Mock
 
 def test_user_registration():
@@ -1044,7 +942,7 @@ def test_user_registration():
     # ПРОВЕРЯЕМ, что метод был вызван
     email_service_mock.send_welcome_email.assert_called_once_with(&quot;john@example.com&quot;)
 </code></pre>
-<h2 id="_2">Ключевые различия</h2>
+<p><strong>Ключевые различия</strong></p>
 <table>
 <thead>
 <tr>
