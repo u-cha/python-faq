@@ -16,6 +16,8 @@
         <link rel="prev" href="../linters/">
       
       
+        <link rel="next" href="../changelog/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
@@ -697,10 +699,77 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Задача (с подвохом). Что выведет этот код?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Реализовать базовый класс Robot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-django-orm-city-person" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Написать запросы Django ORM для моделей City и Person
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Реализовать запуск миллиона асинхронных задач с ограничением concurrency
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Написать декоратор с параметрами для форматирования текста
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Изменения в проекте
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -769,6 +838,51 @@
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       5. Реализовать класс библиотеки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Задача (с подвохом). Что выведет этот код?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Реализовать базовый класс Robot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-django-orm-city-person" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Написать запросы Django ORM для моделей City и Person
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Реализовать запуск миллиона асинхронных задач с ограничением concurrency
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Написать декоратор с параметрами для форматирования текста
     </span>
   </a>
   
@@ -1310,6 +1424,490 @@ def paginate(items, page_size):
 
     def get_all_books(self) -&gt; list:
         return self.books.copy()
+</code></pre>
+
+</details>
+
+<h3 id="6">6. Задача (с подвохом). Что выведет этот код?</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-python">def extend_list(val, lst=[]):
+    lst.append(val)
+    return lst
+
+# Первый вызов: используем список по умолчанию
+list1 = extend_list(10)
+
+# Второй вызов: передаём новый пустой список
+list2 = extend_list(123, [])
+
+# Третий вызов: снова используем список по умолчанию
+list3 = extend_list('a')
+
+print('list1 =', list1)
+print('list2 =', list2)
+print('list3 =', list3)
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+Значения по умолчанию для аргументов функции вычисляются один раз в момент определения функции, а не при каждом вызове. Поэтому список lst=[] создается единожды и переиспользуется во всех вызовах, где lst не передается явно.
+
+
+<pre><code class="language-python">Первый вызов:
+list1 = extend_list(10)
+
+# lst не передан → используется дефолтный список []
+# Добавляем 10 → список становится [10]
+# list1 = [10]
+</code></pre>
+
+
+
+<pre><code class="language-python">Второй вызов:
+list2 = extend_list(123, [])
+
+# Передаем новый пустой список `[]` 
+# Добавляем `123` → список становится `[123]`
+# list2 = [123]
+</code></pre>
+
+
+
+<pre><code class="language-python">Третий вызов:
+#  = extend_list('a')
+
+# lst не передан → используется тот же дефолтный список, что и в первом вызове (уже `[10]`)
+# Добавляем `'a'` → список становится `[10, 'a']`
+# list3 = [10, 'a']**
+</code></pre>
+
+
+
+<pre><code class="language-python"># Итоговый вывод:
+list1 = [10, 'a']
+list2 = [123] 
+list3 = [10, 'a']
+</code></pre>
+
+
+
+<pre><code class="language-text">⚠️ **Важно:** `list1` и `list3` ссылаются на **один и тот же** дефолтный список, поэтому изменения сохраняются между вызовами.
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Правильный вывод</summary>
+
+
+<pre><code class="language-python">list1 = [10, 'a']
+list2 = [123]
+list3 = [10, 'a']
+</code></pre>
+
+</details>
+
+<h3 id="7-robot">7. Реализовать базовый класс Robot</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-python">class Robot:
+    &quot;&quot;&quot;
+    Базовый класс для роботов с базовыми боевыми характеристиками.
+    &quot;&quot;&quot;
+
+    def __init__(self, name):
+        &quot;&quot;&quot;
+        Конструктор робота.
+
+        Args:
+            name: кличка робота
+        &quot;&quot;&quot;
+        self.name = name
+        self.health = 100
+        self.attack_power = 10
+
+    def attack(self, target):
+        &quot;&quot;&quot;
+        Атакует другого робота.
+
+        Args:
+            target: объект робота-цели
+        &quot;&quot;&quot;
+        # Ваше решение здесь
+        pass
+
+    def take_damage(self, amount):
+        &quot;&quot;&quot;
+        Обрабатывает полученный урон.
+
+        Args:
+            amount: количество единиц урона
+        &quot;&quot;&quot;
+        # Ваше решение здесь
+        pass
+
+    @property
+    def is_alive(self):
+        &quot;&quot;&quot;
+        Проверяет, жив ли робот.
+
+        Returns:
+            bool: True если здоровье &gt; 0, иначе False
+        &quot;&quot;&quot;
+        # Ваше решение здесь
+        pass
+
+    def __str__(self):
+        &quot;&quot;&quot;
+        Возвращает строковое представление робота.
+
+        Returns:
+            str: информация о роботе
+        &quot;&quot;&quot;
+        # Ваше решение здесь
+        pass
+
+# Тесты
+robot1 = Robot(&quot;R2-D2&quot;)
+robot2 = Robot(&quot;C-3PO&quot;)
+
+print(&quot;До атаки:&quot;)
+print(robot1)
+print(robot2)
+
+robot1.attack(robot2)
+
+print(&quot;\nПосле атаки:&quot;)
+print(robot1)
+print(robot2)
+
+print(f&quot;\n{robot2.name} жив: {robot2.is_alive}&quot;)
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Для is_alive используйте property декоратор
+2. В attack вызывайте take_damage у цели
+3. В take_damage уменьшайте health и проверяйте на смерть
+4. В __str__ возвращайте форматированную строку с именем и здоровьем
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+
+<pre><code class="language-python">class Robot:
+    &quot;&quot;&quot;
+    Базовый класс для роботов с базовыми боевыми характеристиками.
+    &quot;&quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+        self.health = 100
+        self.attack_power = 10
+
+    def attack(self, target):
+        print(f&quot;{self.name} атакует {target.name} с силой {self.attack_power}!&quot;)
+        target.take_damage(self.attack_power)
+
+    def take_damage(self, amount):
+        self.health -= amount
+        print(f&quot;{self.name} получает {amount} урона. Здоровье: {self.health}&quot;)
+
+        if self.health &lt;= 0:
+            print(f&quot;💀 {self.name} уничтожен!&quot;)
+
+    @property
+    def is_alive(self):
+        return self.health &gt; 0
+
+    def __str__(self):
+        status = &quot;жив&quot; if self.is_alive else &quot;уничтожен&quot;
+        return f&quot;Робот {self.name} | Здоровье: {self.health} | Статус: {status}&quot;
+
+# Тесты
+robot1 = Robot(&quot;R2-D2&quot;)
+robot2 = Robot(&quot;C-3PO&quot;)
+
+print(&quot;До атаки:&quot;)
+print(robot1)
+print(robot2)
+
+robot1.attack(robot2)
+
+print(&quot;\nПосле атаки:&quot;)
+print(robot1)
+print(robot2)
+
+print(f&quot;\n{robot2.name} жив: {robot2.is_alive}&quot;)
+</code></pre>
+
+
+**Ожидаемый вывод:**
+
+<pre><code>До атаки:
+Робот R2-D2 | Здоровье: 100 | Статус: жив
+Робот C-3PO | Здоровье: 100 | Статус: жив
+
+R2-D2 атакует C-3PO с силой 10!
+C-3PO получает 10 урона. Здоровье: 90
+
+После атаки:
+Робот R2-D2 | Здоровье: 100 | Статус: жив
+Робот C-3PO | Здоровье: 90 | Статус: жив
+
+C-3PO жив: True
+</code></pre>
+
+</details>
+
+<h3 id="8-django-orm-city-person">8. Написать запросы Django ORM для моделей City и Person</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-python"># Даны модели:
+class City(models.Model):
+    name = models.CharField(max_length=100)
+
+class Person(models.Model):
+    name = models.CharField(max_length=100)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+
+# Необходимо выполнить следующие запросы:
+# 1. Вывести список людей и городов где они живут
+# 2. Вывести всех людей, живущих в городе N
+# 3. Вывести 5 городов с наибольшим населением, упорядочив по убыванию
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Для связанных моделей используйте select_related() и двойное подчеркивание
+2. Для фильтрации используйте filter() с параметрами через двойное подчеркивание
+3. Для агрегации используйте annotate() с Count() и order_by()
+4. Для ограничения результатов используйте срезы [:N]
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+
+<pre><code class="language-python">from django.db.models import Count
+
+# 1. Вывести список людей и городов где они живут
+people_with_cities = Person.objects.select_related('city').all()
+for person in people_with_cities:
+    print(f&quot;{person.name} - {person.city.name}&quot;)
+
+# Альтернативный вариант
+people_data = Person.objects.select_related('city').values_list('name', 'city__name')
+for name, city_name in people_data:
+    print(f&quot;{name} - {city_name}&quot;)
+
+# 2. Вывести всех людей, живущих в городе N
+city_name = &quot;Москва&quot;
+people_in_city = Person.objects.select_related('city').filter(city__name=city_name)
+for person in people_in_city:
+    print(f&quot;{person.name} живет в {person.city.name}&quot;)
+
+# Если известен ID города
+city_id = 1
+people_in_city_by_id = Person.objects.filter(city_id=city_id)
+
+# 3. Вывести 5 городов с наибольшим населением, упорядочив по убыванию
+top_cities = City.objects.annotate(
+    population=Count('person')
+).order_by('-population')[:5]
+
+for city in top_cities:
+    print(f&quot;{city.name} - {city.population} жителей&quot;)
+
+# Альтернативный вариант с values
+top_cities_data = City.objects.annotate(
+    population=Count('person')
+).order_by('-population').values('name', 'population')[:5]
+
+for city in top_cities_data:
+    print(f&quot;{city['name']} - {city['population']} жителей&quot;)
+</code></pre>
+
+</details>
+
+<h3 id="9-concurrency">9. Реализовать запуск миллиона асинхронных задач с ограничением concurrency</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-text">Необходимо запустить 1_000_000 асинхронных задач с ограничением:
+не более 5 задач могут выполняться одновременно.
+
+Требования:
+1. Создать 1_000_000 задач с уникальными идентификаторами
+2. Ограничить одновременное выполнение до 5 задач
+3. Каждая задача должна имитировать работу (sleep 1 секунду)
+4. Логировать начало и завершение каждой задачи
+5. Обеспечить корректное выполнение всех задач без перегрузки системы
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Используйте asyncio.Semaphore(5) для ограничения concurrency
+2. Применяйте async with semaphore: внутри функции задачи
+3. Используйте asyncio.gather для запуска всех задач
+4. Для имитации работы используйте asyncio.sleep(1)
+5. Убедитесь, что все 1_000_000 задач будут выполнены
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+
+<pre><code class="language-python">import asyncio
+
+async def limited_task(task_id, semaphore):
+    &quot;&quot;&quot;
+    Асинхронная задача с ограничением одновременного выполнения.
+
+    Args:
+        task_id: уникальный идентификатор задачи
+        semaphore: семафор для контроля количества одновременных задач
+    &quot;&quot;&quot;
+    async with semaphore:
+        print(f&quot;🚀 Задача {task_id} начата&quot;)
+        await asyncio.sleep(1)  # Имитация работы (1 секунда)
+        print(f&quot;✅ Задача {task_id} завершена&quot;)
+        return f&quot;Результат задачи {task_id}&quot;
+
+async def main():
+    &quot;&quot;&quot;
+    Основная функция для запуска 1_000_000 задач с ограничением concurrency.
+    &quot;&quot;&quot;
+    # Создаем семафор, ограничивающий одновременное выполнение до 5 задач
+    semaphore = asyncio.Semaphore(5)
+
+    # Создаем 1_000_000 задач с уникальными идентификаторами
+    tasks = [limited_task(i, semaphore) for i in range(1_000_000)]
+
+    print(f&quot;🎯 Запуск {len(tasks)} задач с ограничением 5 одновременных выполнений&quot;)
+
+    # Запускаем все задачи конкурентно
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+
+    # Статистика выполнения
+    successful = len([r for r in results if not isinstance(r, Exception)])
+    failed = len([r for r in results if isinstance(r, Exception)])
+
+    print(f&quot;📊 Статистика: Успешно {successful}, Ошибок {failed}&quot;)
+
+# Запуск асинхронного приложения
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())
+</code></pre>
+
+</details>
+
+<h3 id="10">10. Написать декоратор с параметрами для форматирования текста</h3>
+<details>
+  <summary>Задача</summary>
+
+
+<pre><code class="language-python"># Написать декоратор formatter, который принимает параметр - тег HTML
+# и оборачивает результат функции в соответствующий HTML-тег
+
+# Пример использования:
+@formatter('b')
+def hello(name: str):
+    return f'Hello, {name}'
+
+@formatter('i') 
+def goodbye(name: str):
+    return f'Goodbye, {name}'
+
+# Ожидаемый результат:
+# hello('Bob') → '&lt;b&gt;Hello, Bob&lt;/b&gt;'
+# goodbye('John') → '&lt;i&gt;Goodbye, John&lt;/i&gt;'
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Спойлеры к решению</summary>
+
+
+<pre><code class="language-text">1. Декоратор с параметром должен возвращать функцию-декоратор
+2. Внутренняя функция-wrapper должна вызывать оригинальную функцию
+3. Результат нужно обернуть в HTML-теги согласно параметру
+4. Используйте замыкание для доступа к параметру letter
+</code></pre>
+
+</details>
+
+<details>
+  <summary>Решение</summary>
+
+
+<pre><code class="language-python">def formatter(letter):
+    &quot;&quot;&quot;
+    Декоратор с параметром для оборачивания результата в HTML-тег.
+
+    Args:
+        letter: символ HTML-тега (например, 'b', 'i', 'p')
+
+    Returns:
+        декоратор функции
+    &quot;&quot;&quot;
+    def letter_formatter(func):
+        def wrapper(*args, **kwargs):
+            # Вызываем оригинальную функцию
+            result = func(*args, **kwargs)
+            # Оборачиваем результат в HTML-теги
+            formatted_result = f'&lt;{letter}&gt;{result}&lt;/{letter}&gt;'
+            return formatted_result
+        return wrapper    
+    return letter_formatter
+
+# Пример использования
+@formatter('b')
+def hello(name: str):
+    return f'Hello, {name}'
+
+@formatter('i')
+def goodbye(name: str):
+    return f'Goodbye, {name}'
+
+# Тестирование
+assert hello('Bob') == '&lt;b&gt;Hello, Bob&lt;/b&gt;'
+assert goodbye('John') == '&lt;i&gt;Goodbye, John&lt;/i&gt;'
+
+print(&quot;✅ Все тесты пройдены!&quot;)
+print(hello('Bob'))      # &lt;b&gt;Hello, Bob&lt;/b&gt;
+print(goodbye('John'))   # &lt;i&gt;Goodbye, John&lt;/i&gt;
 </code></pre>
 
 </details>
