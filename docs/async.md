@@ -53,15 +53,6 @@ import asyncio
 - Эффективное использование ресурсов: Позволяет эффективно использовать процессорное время, так как задачи выполняются в моменты ожидания операций ввода/вывода или других блокирующих операций.
 - Простота масштабирования: Позволяет легко создавать множество параллельных (конкурентных) задач без создания большого количества потоков или процессов.
 
-Статьи: [Асинхронный код на Python: синтаксис и особенности](https://thecode.media/asinkhronnyj-kod-na-python-sintaksis-i-osobennosti/) 
-
-[Асинхронное программирование на Python: основы и примеры](https://sky.pro/wiki/python/asinhronnoe-programmirovanie-na-python-osnovy-i-primery/)
-
-[Асинхронный python без головной боли (часть 1)](https://habr.com/ru/articles/667630/)
-
-[Несинхронный Python](https://sorokin.engineer/posts/ru/python_async.html)
-
-[Разбираемся в асинхронности: где полезно, а где — нет?](https://habr.com/ru/companies/kts/articles/713084/)
 
 ---
 
@@ -325,3 +316,19 @@ asyncio.run следует использовать для запуска аси
 
 **Простота использования**:
 asyncio.Semaphore предоставляет удобный и интуитивно понятный способ управления асинхронным параллелизмом
+
+---
+## Статьи по асинхронному программированию 
+
+[Асинхронный код на Python: синтаксис и особенности](https://thecode.media/asinkhronnyj-kod-na-python-sintaksis-i-osobennosti/) 
+
+[Асинхронное программирование на Python: основы и примеры](https://sky.pro/wiki/python/asinhronnoe-programmirovanie-na-python-osnovy-i-primery/)
+
+[Асинхронный python без головной боли (часть 1)](https://habr.com/ru/articles/667630/)
+
+[Несинхронный Python](https://sorokin.engineer/posts/ru/python_async.html)
+
+[Разбираемся в асинхронности: где полезно, а где — нет?](https://habr.com/ru/companies/kts/articles/713084/)
+
+[Цикл статей "Асинхронный python без головной боли"](https://habr.com/ru/articles/667630/)
+
