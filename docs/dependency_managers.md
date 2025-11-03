@@ -289,4 +289,6 @@ poetry publish
 # Публикация в приватный репозиторий
 poetry publish -r private-repo
 ```
+Статьи на Хабре [Poetry: from zero to hero](https://habr.com/ru/articles/740376/)
 
+[Современный Python: как начать свой проект с нуля при помощи Pyenv и Poetry](https://habr.com/ru/articles/599441/)
