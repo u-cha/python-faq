@@ -13,6 +13,7 @@ nav:
       - Функции и декораторы: functions.md
       - Итераторы и генераторы: generators.md
       - Контекстные менеджеры: context_managers.md
+      - Область видимости: legb.md
   - ООП Python: oop.md
   - Паттерны: patterns.md
   - Многопоточность и асинхронность: async.md
