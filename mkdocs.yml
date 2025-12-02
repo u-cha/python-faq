@@ -13,6 +13,7 @@ nav:
       - Итераторы и генераторы: generators.md
       - Контекстные менеджеры: context_managers.md
   - ООП Python: oop.md
+  - Паттерны: patterns.md
   - Многопоточность и асинхронность: async.md
   - Фреймворки: frameworks.md
   - Тестирование: testing.md
