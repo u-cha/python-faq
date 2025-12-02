@@ -9,6 +9,7 @@ nav:
   - Core Python:
       - Устройство Python: structure_python.md
       - Коллекции: collections.md
+      - Generics: generics.md
       - Функции и декораторы: functions.md
       - Итераторы и генераторы: generators.md
       - Контекстные менеджеры: context_managers.md
