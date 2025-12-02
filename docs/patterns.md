@@ -1,5 +1,5 @@
 ---
-title: Adapter Pattern
+title: Patterns
 description: Вопросы и ответы по паттерну "Adapter" на сайте-методичке Python FAQ.
 ---
 ## Adapter Pattern
