@@ -9,10 +9,13 @@ nav:
   - Core Python:
       - Устройство Python: structure_python.md
       - Коллекции: collections.md
+      - Generics: generics.md
       - Функции и декораторы: functions.md
       - Итераторы и генераторы: generators.md
       - Контекстные менеджеры: context_managers.md
+      - Область видимости: legb.md
   - ООП Python: oop.md
+  - Паттерны: patterns.md
   - Многопоточность и асинхронность: async.md
   - Фреймворки: frameworks.md
   - Тестирование: testing.md
@@ -21,6 +24,7 @@ nav:
       - Системы управления зависимостями: dependency_managers.md
       - Линтеры: linters.md
   - Лайвкодинг: livecoding.md
+  - Базы данных: db.md
   - Изменения в проекте: changelog.md
   #- Шаблон: template.md
 
