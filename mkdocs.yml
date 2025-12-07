@@ -24,7 +24,7 @@ nav:
       - Системы управления зависимостями: dependency_managers.md
       - Линтеры: linters.md
   - Лайвкодинг: livecoding.md
-  - База данных: db.md
+  - Базы данных: db.md
   - Изменения в проекте: changelog.md
   #- Шаблон: template.md
 
