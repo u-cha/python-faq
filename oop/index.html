@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://u-cha.github.io/python-faq/oop/">
       
       
-        <link rel="prev" href="../context_managers/">
+        <link rel="prev" href="../legb/">
       
       
-        <link rel="next" href="../async/">
+        <link rel="next" href="../patterns/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -332,6 +332,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../functions/" class="md-nav__link">
         
   
@@ -384,6 +407,29 @@
   
   <span class="md-ellipsis">
     Контекстные менеджеры
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Область видимости
     
   </span>
   
@@ -561,10 +607,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Является ли ключевое слово classобъектом?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Паттерны
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -672,10 +749,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -688,8 +765,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Инструменты
           </label>
@@ -761,6 +838,28 @@
   
   <span class="md-ellipsis">
     Лайвкодинг
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Базы данных
     
   </span>
   
@@ -924,6 +1023,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Является ли ключевое слово classобъектом?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -956,7 +1064,48 @@
 Производный класс представляет частный случай базового (например, Грузовик является Автомобилем). Попытка наследовать Автомобиль от Колеса для переиспользования метода «ехать» семантически неверна, так как автомобиль не является разновидностью колеса. Корректным паттерном здесь выступает композиция, которая выражает отношение «имеет» (has-a): автомобиль имеет четыре колеса и, координируя их работу, реализует собственное поведение «поехать», делегируя вызовы своим компонентам.</p>
 <p><strong>Инкапсуляция</strong> - в Python это прежде всего организационный принцип, который позволяет собрать связанные переменные (данные, состояние) и функции (методы, поведение) в рамках одного класса. Это создает четкую и понятную структуру, где класс отвечает за свою собственную логику и данные.
 Мы можем  также ограничить доступ к методам и переменным, что предотвратит модификацию данных. В Python нет строгой приватности, как в других языках; вместо этого используются соглашения и механизм
-"изменения имени" (__fly) для приватных (private) методов и атрибутов. Приватные методы доступны только внутри класса (с двойным подчеркиванием в имени __do), а защищённые (protected) методы (с одним подчёркиванием _play) служат только для соглашения, что их не следует использовать извне. </p>
+"изменения имени" (__fly) для приватных (private) методов и атрибутов. Приватные методы доступны только внутри класса (с двойным подчеркиванием в имени __do), а защищённые (protected) методы (с одним подчёркиванием _play) служат только для соглашения, что их не следует использовать извне. 
+Отличие <strong>Private (приватного)</strong> от <strong>Protected (защищенного)</strong> заключается в том, что в Private используется name mangling — имя меняется интерпретатором для "защиты", т.е. невозможно напрямую обратиться по такому имени вне класса.
+Как обратиться к <strong>Protected</strong> методу вне класса и наследников? Protected — это только соглашение, а не ограничение языка. </p>
+<pre><code>class MyClass:
+    def __init__(self):
+        self.public_field = &quot;публичное&quot;
+        self._protected_field = &quot;защищённое&quot;
+        self.__private_field = &quot;приватное&quot;
+
+    def public_method(self):
+        return &quot;публичный метод&quot;
+
+    def _protected_method(self):
+        return &quot;защищённый метод&quot;
+
+    def __private_method(self):
+        return &quot;приватный метод&quot;
+
+obj = MyClass()
+print(obj._protected_field)          
+print(obj._protected_method())       
+</code></pre>
+<p>В наследниках</p>
+<pre><code>class Child(MyClass):
+    def use_protected(self):
+        return self._protected_method()  
+</code></pre>
+<p>Как обратится к <strong>Private</strong> методу вне класса? Напрямую — нельзя.</p>
+<pre><code>obj = MyClass()
+# obj.__private_method()  # ❌ Ошибка: AttributeError
+</code></pre>
+<p>Есть ли способ обойти приватность и получить доступ к приватным методам?
+Есть — через name mangling. Python не делает поля по-настоящему приватными, а просто меняет имя.</p>
+<pre><code>obj = MyClass()
+
+# Можно вызвать приватный метод так:
+print(obj._MyClass__private_method())  # ✅ Работает!
+
+# И даже получить доступ к полю:
+print(obj._MyClass__private_field)     # ✅ Вернёт &quot;приватное&quot;
+</code></pre>
+<p>Это нарушает инкапсуляцию и не рекомендуется в production-коде.</p>
 <p><strong>Полиморфизм</strong> -  это возможность применять одно и то же действие (метод или функцию) к объектам разных типов, и каждый объект отреагирует на это действие своим собственным, специфическим образом.
 Один интерфейс — множество реализаций. Мы можем использовать одинаковые команды для разных объектов, не задумываясь о их внутреннем устройстве, так как каждый объект "знает" (своя реализация внутри), как именно ему выполнить эту команду.</p>
 <p>Функция <strong>len()</strong> в Python — идеальный пример полиморфизма. Мы можем использовать одну и ту же функцию для совершенно разных объектов:</p>
@@ -1595,6 +1744,11 @@ class C(B):
 <li><strong>Позволяет избежать прямого указания имени родительского класса</strong></li>
 <li><strong>Обеспечивает правильный порядок вызовов</strong> в сложных иерархиях наследования</li>
 </ul>
+<hr />
+<h2 id="class">Является ли ключевое слово <code>class</code>объектом?</h2>
+<p>Ключевое слово <code>class</code> в Python не является объектом. Это синтаксическая конструкция (ключевое слово) языка программирования, которая используется для определения нового класса.</p>
+<p>Когда вы пишете <code>class</code>, вы создаёте описание (шаблон, определение) класса — не сам объект. Этот класс в свою очередь является объектом типа <code>type</code>. То есть класс — это объект, но ключевое слово <code>class</code> — нет.</p>
+<p>Ключевое слово <code>class</code> сообщает интерпретатору, что далее следует определение класса. В рантайме класс становится полноценным объектом, который можно присвоить переменной, использовать для создания экземпляров (объектов), добавлять атрибуты и методы.</p>
 
 
 

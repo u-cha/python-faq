@@ -332,6 +332,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../functions/" class="md-nav__link">
         
   
@@ -394,6 +417,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Область видимости
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -414,6 +460,28 @@
   
   <span class="md-ellipsis">
     ООП Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Паттерны
     
   </span>
   
@@ -564,6 +632,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#assert-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Для чего нужен assert в python и в каких случаях надо избегать использования этой конструкции?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -609,10 +686,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -625,8 +702,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Инструменты
           </label>
@@ -698,6 +775,28 @@
   
   <span class="md-ellipsis">
     Лайвкодинг
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Базы данных
     
   </span>
   
@@ -793,6 +892,15 @@
   <a href="#monkey-patching" class="md-nav__link">
     <span class="md-ellipsis">
       Monkey patching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assert-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Для чего нужен assert в python и в каких случаях надо избегать использования этой конструкции?
     </span>
   </a>
   
@@ -1050,6 +1158,35 @@ obj.my_method()  # выведет "Hello from new_method"
 </code></pre>
 <p>Важно учитывать, что использование monkey patching может усложнить отладку и поддержку в будущем, 
 поэтому следует использовать эту технику с осторожностью и только при необходимости.</p>
+<hr />
+<h2 id="assert-python">Для чего нужен assert в python и в каких случаях надо избегать использования этой конструкции?</h2>
+<p>Оператор <code>assert</code> в Python используется для проверки некоторого условия — если условие ложно, он вызывает исключение <code>AssertionError</code> с необязательным сообщением. Это удобный инструмент для отладки, фиксации предположений и нахождения ошибок на этапе разработки.</p>
+<p><strong>Для чего нужен <code>assert</code>:</strong>
+* Проверка предположений о состоянии программы в ходе разработки.</p>
+<ul>
+<li>
+<p>Быстрая фиксация критических условий, которые должны быть верны для корректной работы.</p>
+</li>
+<li>
+<p>Помощь в отладке, так как выявляет нарушение инвариантов.</p>
+</li>
+<li>
+<p>Используется в тестах (например, <code>pytest</code> активно использует <code>assert</code>).</p>
+</li>
+</ul>
+<p><strong>Когда нужно избегать <code>assert</code>:</strong>
+* Не стоит использовать в производственном (продакшен) коде для валидации данных и ошибок, влияющих на логику. Это связано с тем, что при запуске Python с флагом оптимизации (-O) все операторы assert игнорируются и не выполняются.</p>
+<ul>
+<li>
+<p>Не использовать для проверки пользовательского ввода или для обязательных проверок, которые должны работать всегда.</p>
+</li>
+<li>
+<p>Не подходит для проверки условий с побочными эффектами, так как их вычисление будет пропущено при оптимизации.</p>
+</li>
+<li>
+<p>Для обязательных проверок лучше выбрасывать стандартные исключения (например, ValueError) через явные условия.</p>
+</li>
+</ul>
 
 
 

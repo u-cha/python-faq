@@ -343,6 +343,15 @@
         <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
+      Относительные и абсолютные импорты в Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
       Что происходит при запуске кода в Python?
     </span>
   </a>
@@ -433,6 +442,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../functions/" class="md-nav__link">
         
   
@@ -495,6 +527,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Область видимости
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -515,6 +570,28 @@
   
   <span class="md-ellipsis">
     ООП Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Паттерны
     
   </span>
   
@@ -627,10 +704,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -643,8 +720,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Инструменты
           </label>
@@ -732,6 +809,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Базы данных
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../changelog/" class="md-nav__link">
         
   
@@ -782,6 +881,15 @@
       
         <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Относительные и абсолютные импорты в Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
     <span class="md-ellipsis">
       Что происходит при запуске кода в Python?
     </span>
@@ -895,7 +1003,44 @@ import shapes
 </code></pre>
 <p>Статья на хабре <a href="https://habr.com/ru/articles/718828/">Python модули и пакеты</a></p>
 <hr />
-<h2 id="python">Что происходит при запуске кода в Python?</h2>
+<h2 id="python">Относительные и абсолютные импорты в Python</h2>
+<p>Относительные и абсолютные импорты в Python отличаются тем, как указывается путь к модулю, который импортируется.</p>
+<p><strong>Абсолютные импорты</strong></p>
+<p>При абсолютном импорте указывается полный путь к модулю с корня проекта или установленного пакета. Например:</p>
+<pre><code class="language-python">from myproject.mypackage import mymodule
+</code></pre>
+<p>Абсолютные импорты более читаемы и однозначны, их легче поддерживать. Это рекомендуется согласно PEP 8. Абсолютные импорты работают всегда, независимо от того, откуда запускается скрипт.</p>
+<p><strong>Относительные импорты</strong></p>
+<p>Относительный импорт задает путь от текущего модуля с помощью точек:</p>
+<ul>
+<li>
+<p>Одна точка . — текущий каталог</p>
+</li>
+<li>
+<p>Две точки .. — уровень выше</p>
+</li>
+<li>
+<p>Три точки ... — на два уровня выше и так далее</p>
+</li>
+</ul>
+<p>Пример:</p>
+<pre><code class="language-python">from . import mymodule  # импорт модуля из текущей папки
+from ..subpackage import othermodule  # импорт из родительской папки
+</code></pre>
+<p>Относительные импорты удобны внутри пакетов для коротких путей и удобства поддержки, но работают только в пакетах (внутри модуля, который запускается как часть пакета), а не в скриптах, запущенных напрямую.</p>
+<p><strong>Главные отличия</strong></p>
+<ul>
+<li>
+<p>Абсолютные пути всегда начинаются с корня проекта (пакета).</p>
+</li>
+<li>
+<p>Относительные пути задают перемещение относительно текущего модуля.</p>
+</li>
+</ul>
+<p>В практике предпочтительнее использовать абсолютные импорты для внешнего кода, а относительные — для внутренних модулей пакета. Однако в точке входа (главный исполняемый файл) всегда используйте абсолютные импорты.</p>
+<p>Статья на хабре - <a href="https://habr.com/ru/sandbox/249064/?ysclid=miot5vsvys72477592">Приручаем импорты в Python, или как не сойти с ума</a> </p>
+<hr />
+<h2 id="python_1">Что происходит при запуске кода в Python?</h2>
 <p>Python — интерпретируемый язык программирования, поэтому коду не нужна компиляция. Он выполняется на ходу, но используется промежуточная форма, которая называется компиляцией байт-кода.</p>
 <p>Вот как это происходит под капотом кратко:</p>
 <ul>

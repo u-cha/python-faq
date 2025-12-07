@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Вопросы и ответы по контекстным менеджерам Python на сайте-методичке Python FAQ.">
+        <meta name="description" content="Вопросы и ответы по Generics на сайте-методичке Python FAQ.">
       
       
       
-        <link rel="canonical" href="https://u-cha.github.io/python-faq/context_managers/">
+        <link rel="canonical" href="https://u-cha.github.io/python-faq/generics/">
       
       
-        <link rel="prev" href="../generators/">
+        <link rel="prev" href="../collections/">
       
       
-        <link rel="next" href="../legb/">
+        <link rel="next" href="../functions/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Контекстные менеджеры - Python FAQ</title>
+        <title>Generics - Python FAQ</title>
       
     
     
@@ -58,11 +58,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Контекстные менеджеры - Python FAQ" >
+        <meta  property="og:title"  content="Generics - Python FAQ" >
       
-        <meta  property="og:description"  content="Вопросы и ответы по контекстным менеджерам Python на сайте-методичке Python FAQ." >
+        <meta  property="og:description"  content="Вопросы и ответы по Generics на сайте-методичке Python FAQ." >
       
-        <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/context_managers.png" >
+        <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/generics.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -70,15 +70,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://u-cha.github.io/python-faq/context_managers/" >
+        <meta  property="og:url"  content="https://u-cha.github.io/python-faq/generics/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Контекстные менеджеры - Python FAQ" >
+        <meta  name="twitter:title"  content="Generics - Python FAQ" >
       
-        <meta  name="twitter:description"  content="Вопросы и ответы по контекстным менеджерам Python на сайте-методичке Python FAQ." >
+        <meta  name="twitter:description"  content="Вопросы и ответы по Generics на сайте-методичке Python FAQ." >
       
-        <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/context_managers.png" >
+        <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/generics.png" >
       
     
     
@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#generics" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Контекстные менеджеры
+              Generics
             
           </span>
         </div>
@@ -331,10 +331,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../generics/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Generics
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -345,6 +365,84 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 1. Корзина для предметов
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 2. Коллекция с ограничением типов
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-bound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 3. Ограниченные дженерики (bound)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 4. Репозиторий
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 5. Дженерики + Protocol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -400,30 +498,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Контекстные менеджеры
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../context_managers/" class="md-nav__link">
         
   
   
@@ -434,42 +512,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Контекстный менеджер
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Чем можно заменить контекстный менеджер?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -819,20 +861,62 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#generics" class="md-nav__link">
     <span class="md-ellipsis">
-      Контекстный менеджер
+      Generics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 1. Корзина для предметов
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      Чем можно заменить контекстный менеджер?
+      Пример 2. Коллекция с ограничением типов
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-bound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 3. Ограниченные дженерики (bound)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 4. Репозиторий
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример 5. Дженерики + Protocol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -855,59 +939,178 @@
   
 
 
-  <h1>Контекстные менеджеры</h1>
+  <h1>Generics</h1>
 
-<h2 id="_1">Контекстный менеджер</h2>
-<p>В python есть оператор with. Размещенный внутри код выполняется с особенностью: до и после гарантированно срабатывают события входа в блок with и выхода из него. Объект, который определяет эту логику, называется контекстным менеджером.
-События входа и выхода из блока определены методами <code>__enter__</code> и <code>__exit__</code>. Первый срабатывает в тот момент, когда ход исполнения программы переходит внутрь with. Метод может вернуть значение. Оно будет доступно низлежащему внутри блока with коду.</p>
-<p><code>__exit__</code> срабатывает в момент выхода из блока, в т.ч. и по причине исключения. В этом случае в метод будет передана тройка значений (exc_class, exc_instance, traceback).
-Самый распространённый контекстный менеджер – класс, порожденный функцией open. Он гарантирует, что файл будет закрыт даже в том случае, если внутри блока возникнет ошибка.
-Нужно стараться выходить из контекстного менеджера как можно быстрее, чтобы освобождать контекст и ресурсы.
-Контекстные менеджеры также можно использовать для временной замены параметров, переменных окружения, транзакций БД.</p>
-<pre><code>with open('file.txt') as f:
-    data = f.read()
-process_data(data)
+<h2 id="generics">Generics</h2>
+<p>Generics — это способ написать класс или функцию один раз, но при этом заранее указать, с каким типом объектов он будет работать.
+Для этого в Python используется модуль typing и конструкция TypeVar, позволяющая задать универсальный параметр типа. Например, можно создать класс Box, который будет работать с любым типом T, и методы этого класса будут возвращать и принимать значения именно этого типа. Это улучшает читаемость кода и позволяет статическим анализаторам (например, mypy) проверять соответствие типов на этапе разработки.</p>
+<p>Кроме TypeVar, часто применяется класс Generic, который позволяет создавать универсальные классы с параметрами типов. В Python 3.9+ появились обобщённые типы для встроенных коллекций (list, dict и др.), которые можно параметризовать напрямую как list[int] или dict[str, float]. Python 3.12 добавляет новый синтаксис для generic-типов, улучшающий удобство и гибкость их использования.</p>
+<p>Основные возможности и примеры применения generics в Python:</p>
+<ul>
+<li>
+<p>Универсальные контейнеры, например корзина или репозиторий, которые могут хранить элементы произвольного типа с типобезопасностью.</p>
+</li>
+<li>
+<p>Функции, которые принимают и возвращают значения одного и того же параметризованного типа.</p>
+</li>
+<li>
+<p>Поддержка ковариантности и контравариантности через параметры типа.</p>
+</li>
+<li>
+<p>Поддержка обобщённых коллекций с аннотациями типов, улучшенная в новых версиях Python.</p>
+</li>
+</ul>
+<p>Пример простого generic-класса:</p>
+<pre><code>from typing import Generic, TypeVar
+
+T = TypeVar('T')
+
+class Box(Generic[T]):
+    def __init__(self, item: T) -&gt; None:
+        self.item = item
+    def get_item(self) -&gt; T:
+        return self.item
 </code></pre>
-<p>Пример реализации своего контекстного менеджера на основе класса:</p>
-<pre><code>class Printable:
-    def __enter__(self):
-        print('enter')
+<p>Такой класс Box можно использовать с любым типом, например Box[int] или Box[str], и это будет проверяться статическим анализатором.</p>
+<p>Теперь сделаем ту же коробку, но с дженериком:</p>
+<h4 id="1">Пример 1. Корзина для предметов</h4>
+<pre><code>if __name__ == '__main__':
+    apple_box = Box('apple')
+    print(apple_box.get_item())  # выведет 'apple'
 
-    def __exit__(self, type, value, traceback):
-        print('exit')
+    number_box = Box(123)
+    print(number_box.get_item())  # выведет 123
+
+    apple_box = Box[str](1)  # mypy выдаст ошибку, так как ожидается строка, а передаётся число
+
+    print(apple_box.get_item())  # выведет 1, несмотря на ошибку mypy — в рантайме Python не проверяет типы
+
+    print(some_box.get_item())  # вызовет ошибку NameError, так как some_box не определён в коде
 </code></pre>
-<p>Пример реализации своего контекстного менеджера с использованием встроенной библиотеки <em>contextlib</em></p>
-<pre><code>from contextlib import contextmanager
+<h4 id="2">Пример 2. Коллекция с ограничением типов</h4>
+<p>Сделаем корзину (Basket), куда можно складывать предметы только одного типа:</p>
+<pre><code>from typing import TypeVar, Generic, List
 
-@contextmanager
-def printable():
-    print('enter')
-    try:
-      yield
-    finally:
-      print('exit')
+T = TypeVar('T')
+
+
+class Basket(Generic[T]):
+    def __init__(self):
+        self.items: List[T] = []
+
+    def add(self, item: T) -&gt; None:
+        self.items.append(item)
+
+    def get_all(self) -&gt; List[T]:
+        return self.items
+
+if __name__ == '__main__':
+    fruit_basket = Basket[str]()
+    fruit_basket.add(&quot;apple&quot;)
+    fruit_basket.add(&quot;orange&quot;)
+    print(fruit_basket.get_all())  # Выведет ['apple', 'orange']
+
+    number_basket = Basket[int]()
+    number_basket.add(1)
+    number_basket.add(2)
+    print(number_basket.get_all())  # Выведет [1, 2]
+
+    fruit_basket.add(2)  # mypy/IDE выдаст предупреждение, т.к. добавляется int вместо str
 </code></pre>
-<h2 id="_2">Чем можно заменить контекстный менеджер?</h2>
-<p>Можно заменить конструкцией try, finally или декоратором.</p>
-<pre><code>try:
-    # Код, который требует ресурсов
-finally:
-    # Очистка ресурсов
+<h4 id="3-bound">Пример 3. Ограниченные дженерики (bound)</h4>
+<p>Иногда нужно разрешить только числа, а не всё подряд. Тогда мы говорим: «T должен быть числом» (bound=float):</p>
+<pre><code>from typing import Generic, TypeVar
+
+NumberT = TypeVar('NumberT', bound=float)
+
+class Calculator(Generic[NumberT]):
+    def __init__(self, value: NumberT) -&gt; None:
+        self.value = value
+
+    def add(self, other: NumberT) -&gt; NumberT:
+        return self.value + other
+
+if __name__ == '__main__':
+    calc = Calculator(10.5)
+    print(calc.add(2))      # сработает, выведет 12.5, но mypy выдаст предупреждение, так как передается int, а ожидается float
+    print(calc.add(3.5))    # сработает и выведет 14.0
+    print(calc.add('s'))    # вызовет ошибку времени выполнения TypeError при попытке сложить float и str, но mypy выдаст предупреждение заранее
+</code></pre>
+<h4 id="4">Пример 4. Репозиторий</h4>
+<p>Представьте, что у нас есть база данных с разными сущностями: User, Product. Вместо того чтобы писать одинаковый код для каждой, мы можем сделать дженерик-репозиторий:</p>
+<pre><code>from typing import Generic, TypeVar
+
+T = TypeVar('T')
 
 
-def resource_manager(func):
-    def wrapper(*args, **kwargs):
-        # Инициализация ресурсов
-        result = func(*args, **kwargs)
-        # Очистка ресурсов
+class Repository(Generic[T]):
+    def __init__(self):
+        self.items: list[T] = []
+
+    def add(self, item: T) -&gt; None:
+        self.items.append(item)
+
+    def get_all(self) -&gt; list[T]:
+        return self.items
+
+
+class User:
+    def __init__(self, name: str) -&gt; None:
+        self.name = name
+
+    def __repr__(self):
+        return f&quot;User: {self.name}&quot;
+
+
+class Product:
+    def __init__(self, title: str) -&gt; None:
+        self.title = title
+
+    def __repr__(self):
+        return f&quot;Production: {self.title}&quot;
+
+if __name__ == '__main__':
+    user_repo = Repository[User]()
+    user_repo.add(User('Alice'))
+    user_repo.add(User('Bob'))
+    print(user_repo.get_all())  # выведет [User: Alice, User: Bob]
+
+    product_repo = Repository[Product]()
+    product_repo.add(Product('Iphone'))
+    product_repo.add(Product('Laptop'))
+    print(product_repo.get_all())  # выведет [Production: Iphone, Production: Laptop]
+
+    user_repo.add(Product('Table'))  # предупреждение mypy, но выполнится — в user_repo появится Product('Table')
+    product_repo.add(User('Miki'))    # предупреждение mypy, но выполнится — в product_repo появится User('Miki')
+</code></pre>
+<h4 id="5-protocol">Пример 5. Дженерики + Protocol</h4>
+<p>А что если мы хотим складывать объекты (например, числа или строки)? Тогда можно сказать: «принимаю любой тип, у которого есть оператор +».</p>
+<pre><code>from typing import Protocol, TypeVar, Generic
+
+
+class Addable(Protocol):
+    def __add__(self, other: &quot;Addable&quot;) -&gt; &quot;Addable&quot;: ...
+
+
+T = TypeVar(&quot;T&quot;, covariant=True, bound=Addable)
+
+
+class Summer(Generic[T]):
+    def __init__(self, items: list[T]) -&gt; None:
+        self.items = items
+
+    def total(self) -&gt; T:
+        result = self.items[0]
+        for item in self.items[1:]:
+            result += item
         return result
-    return wrapper
 
-@resource_manager
-def expensive_operation():
-    # Выполнение операции
-    pass
+
+if __name__ == '__main__':
+    print(Summer([1, 2, 3]).total())       # выведет 6 (сложение целых чисел)
+    print(Summer(['a', 'b', 'c']).total()) # выведет 'abc' (конкатенация строк)
 </code></pre>
+<p>Таким образом, generics в Python позволяют писать более универсальный и типобезопасный код, облегчая поддержку и проверку программных систем.</p>
 
 
 

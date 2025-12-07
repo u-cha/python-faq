@@ -334,6 +334,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../functions/" class="md-nav__link">
         
   
@@ -427,6 +450,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Что такое list/dict comprehension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#else" class="md-nav__link">
+    <span class="md-ellipsis">
+      Блок else в циклах
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -461,6 +499,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Область видимости
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -481,6 +542,28 @@
   
   <span class="md-ellipsis">
     ООП Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Паттерны
     
   </span>
   
@@ -593,10 +676,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -609,8 +692,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Инструменты
           </label>
@@ -698,6 +781,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Базы данных
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../changelog/" class="md-nav__link">
         
   
@@ -761,6 +866,21 @@
       Что такое list/dict comprehension
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Что такое list/dict comprehension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#else" class="md-nav__link">
+    <span class="md-ellipsis">
+      Блок else в циклах
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -934,6 +1054,49 @@ for square in squares:
 <p>Generator Expression (генераторное выражение)</p>
 <pre><code>(expression for item in iterable if condition)
 </code></pre>
+<h3 id="else">Блок else в циклах</h3>
+<p>В Python блок <code>else</code> в циклах <code>for</code> и <code>while</code> выполняется, если цикл завершился «естественным» образом, то есть без выхода через оператор <code>break</code>. Если цикл был прерван <code>break</code>, то <code>else</code> не выполняется.</p>
+<p>Принцип работы:</p>
+<ul>
+<li>
+<p>Цикл выполняет все итерации (или пока условие истинно для while).</p>
+</li>
+<li>
+<p>Если цикл завершился полностью, выполняется else.</p>
+</li>
+<li>
+<p>Если в процессе был вызван break, else пропускается.</p>
+</li>
+</ul>
+<p>Примеры:</p>
+<pre><code class="language-python">for i in range(3):
+    print(i)
+else:
+    print(&quot;Цикл завершён без break&quot;)
+</code></pre>
+<p>Выведет:</p>
+<pre><code>text
+0
+1
+2
+Цикл завершён без break
+</code></pre>
+<p>А вот с break:</p>
+<pre><code class="language-python">for i in range(3):
+    if i == 1:
+        break
+    print(i)
+else:
+    print(&quot;Цикл завершён без break&quot;)
+</code></pre>
+<p>Выведет:</p>
+<pre><code>text
+0
+</code></pre>
+<p>(блок else не выполнится).</p>
+<p>Такой механизм полезен, например, для поиска элемента: если элемент не найден и не было прерывания, можно выполнить обработку в else. Это улучшает читаемость и избавляет от флагов.</p>
+<p>То же работает с while-циклами: <code>else</code> выполняется, когда условие цикла становится ложным, а не был применён <code>break</code>.</p>
+<p>Таким образом, <code>else</code> в циклах — это блок, который выполняется после успешного окончания цикла без досрочного выхода, позволяя удобно обрабатывать ситуацию «ничего не найдено» или «цикл завершён полностью»</p>
 
 
 
