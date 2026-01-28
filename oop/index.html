@@ -610,7 +610,7 @@
         <li class="md-nav__item">
   <a href="#class" class="md-nav__link">
     <span class="md-ellipsis">
-      Является ли ключевое слово classобъектом?
+      Является ли ключевое слово class объектом?
     </span>
   </a>
   
@@ -832,12 +832,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../livecoding/" class="md-nav__link">
+      <a href="../db/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Лайвкодинг
+    Базы данных
     
   </span>
   
@@ -854,12 +854,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../db/" class="md-nav__link">
+      <a href="../livecoding/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Базы данных
+    Лайвкодинг
     
   </span>
   
@@ -1026,7 +1026,7 @@
         <li class="md-nav__item">
   <a href="#class" class="md-nav__link">
     <span class="md-ellipsis">
-      Является ли ключевое слово classобъектом?
+      Является ли ключевое слово class объектом?
     </span>
   </a>
   
@@ -1364,22 +1364,124 @@ p = PointSlots(1, 2)
 p.z = 3  # ❌ AttributeError: 'PointSlots' object has no attribute 'z'
 </code></pre>
 <p><code>__slots__</code>— это компромисс между гибкостью (возможность добавлять любые атрибуты) и производительностью (память + скорость).</p>
-<p><strong>Наследование со <code>__slots__</code></strong>:</p>
-<ul>
-<li>Если родитель имеет <code>__slots__</code>, а потомок не определяет свой — потомок получит <code>__dict__</code> + унаследует слоты родителя </li>
-<li>Если потомок определяет свой <code>__slots__</code> — он должен явно включать слоты родителя (так как полностью переписывает этот атрибут при переопределении и теряет <code>__slots__</code> родителей)</li>
-<li><code>__slots__</code> разных родителей не конфликтуют — Python объединяет их автоматически<pre><code>class Parent:
-    __slots__ = ['x']  # Только атрибут 'x'
+<p><strong>Объяснение работы <code>__slots__</code> при наследовании в Python 3.x:</strong></p>
+<ol>
+<li>
+<p><strong>Если родитель имеет <code>__slots__</code></strong>:<br />
+   Потомок наследует эти слоты <strong>автоматически</strong>, даже если определяет свой собственный <code>__slots__</code>.<br />
+   Нет необходимости явно включать слоты родителя (кроме случаев множественного наследования с конфликтующими слотами).</p>
+</li>
+<li>
+<p><strong>Если потомок определяет свой <code>__slots__</code></strong>:<br />
+   Он <strong>не теряет</strong> слоты родителя. Python объединяет их автоматически при одиночном наследовании.</p>
+</li>
+<li>
+<p><strong>Если потомок НЕ определяет свой <code>__slots__</code></strong>:<br />
+   Он наследует только слоты родителя и <strong>не получает <code>__dict__</code></strong> автоматически.</p>
+</li>
+<li>
+<p><strong>Множественное наследование</strong>:<br />
+   Python автоматически объединяет <code>__slots__</code> разных родителей.<br />
+   Если родители имеют одинаковые имена слотов — это нормально, слот считается общим.</p>
+</li>
+</ol>
+<p><strong>Полная таблица наследования <code>__slots__</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Ситуация</th>
+<th>У экземпляра есть <code>__dict__</code>?</th>
+<th>Можем создавать новые атрибуты?</th>
+<th>Что наследуется?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Родитель БЕЗ <code>__slots__</code></strong><br>Потомок БЕЗ <code>__slots__</code></td>
+<td>✅ Да</td>
+<td>✅ Да</td>
+<td>Только <code>__dict__</code></td>
+</tr>
+<tr>
+<td><strong>2. Родитель БЕЗ <code>__slots__</code></strong><br>Потомок СО <code>__slots__</code></td>
+<td>❌ Нет</td>
+<td>❌ Только слоты потомка</td>
+<td><code>__dict__</code> не наследуется</td>
+</tr>
+<tr>
+<td><strong>3. Родитель СО <code>__slots__</code></strong><br>Потомок БЕЗ <code>__slots__</code></td>
+<td>❌ Нет</td>
+<td>❌ Только унаследованные слоты</td>
+<td>Слоты родителя</td>
+</tr>
+<tr>
+<td><strong>4. Родитель СО <code>__slots__</code></strong><br>Потомок СО <code>__slots__</code></td>
+<td>❌ Нет</td>
+<td>❌ Только все слоты</td>
+<td>Слоты объединяются автоматически</td>
+</tr>
+<tr>
+<td><strong>5. Класс с <code>'__dict__'</code> в <code>__slots__</code></strong></td>
+<td>✅ Да</td>
+<td>✅ Да</td>
+<td>Явное разрешение <code>__dict__</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Примеры:</strong></p>
+<pre><code class="language-python"># Случай 3 из таблицы: родитель со slots, потомок без slots
+class Parent:
+    __slots__ = ['x']
 
 class Child(Parent):
-    __slots__ = ['y']  # ❌ НЕВЕРНО: потеряет наследование 'x'
+    pass  # Не определяет свой __slots__
 
-class CorrectChild(Parent):
-    __slots__ = ['y']  # ✅ ВЕРНО: наследует 'x' + добавляет 'y'
+c = Child()
+c.x = 10  # ✅ Работает — унаследованный слот
+print(hasattr(c, '__dict__'))  # ❌ False — нет словаря!
+# c.y = 20  # ❌ AttributeError: нельзя создать новый атрибут
 </code></pre>
-</li>
-</ul>
-<p>Для сохранения оптимизации во всей иерархии все классы должны корректно определять <code>__slots__</code>.</p>
+<pre><code class="language-python"># Случай 4 из таблицы: оба имеют slots
+class Parent:
+    __slots__ = ['x']
+
+class Child(Parent):
+    __slots__ = ['y']  # ✅ Слот 'x' наследуется автоматически
+
+c = Child()
+c.x = 10  # ✅ Работает
+c.y = 20  # ✅ Работает
+# c.z = 30  # ❌ Ошибка: нет слота 'z'
+</code></pre>
+<pre><code class="language-python"># Множественное наследование
+class A:
+    __slots__ = ['a']
+
+class B:
+    __slots__ = ['b']
+
+class C(A, B):
+    __slots__ = ['c']  # ✅ Автоматически получаем слоты 'a' и 'b'
+
+obj = C()
+obj.a = 1  # ✅
+obj.b = 2  # ✅
+obj.c = 3  # ✅
+</code></pre>
+<pre><code class="language-python"># Явное объединение слотов (рекомендуется для ясности)
+class Parent:
+    __slots__ = ['x']
+
+class ExplicitChild(Parent):
+    __slots__ = Parent.__slots__ + ['y']  # ✅ Понятно, что слоты объединены
+</code></pre>
+<p><strong>Ключевые выводы:</strong></p>
+<ol>
+<li>Слоты родителей автоматически наследуются в Python 3.x</li>
+<li>Наличие <code>__slots__</code> у родителя отключает <code>__dict__</code> для всей иерархии (если явно не восстановлен)</li>
+<li>Явное объединение слотов рекомендуется для документации и особых случаев</li>
+<li>Для восстановления динамических атрибутов добавьте <code>'__dict__'</code> в <code>__slots__</code></li>
+</ol>
 <hr />
 <h2 id="_4">Дескрипторы</h2>
 <p>Дескрипторы в Python — это объекты, которые реализуют один или несколько специальных методов: <code>__get__()</code>, <code>__set__()</code> и <code>__delete__()</code>. Они позволяют контролировать доступ к атрибутам класса и определять дополнительное поведение при их получении, изменении или удалении.
@@ -1745,7 +1847,7 @@ class C(B):
 <li><strong>Обеспечивает правильный порядок вызовов</strong> в сложных иерархиях наследования</li>
 </ul>
 <hr />
-<h2 id="class">Является ли ключевое слово <code>class</code>объектом?</h2>
+<h2 id="class">Является ли ключевое слово <code>class</code> объектом?</h2>
 <p>Ключевое слово <code>class</code> в Python не является объектом. Это синтаксическая конструкция (ключевое слово) языка программирования, которая используется для определения нового класса.</p>
 <p>Когда вы пишете <code>class</code>, вы создаёте описание (шаблон, определение) класса — не сам объект. Этот класс в свою очередь является объектом типа <code>type</code>. То есть класс — это объект, но ключевое слово <code>class</code> — нет.</p>
 <p>Ключевое слово <code>class</code> сообщает интерпретатору, что далее следует определение класса. В рантайме класс становится полноценным объектом, который можно присвоить переменной, использовать для создания экземпляров (объектов), добавлять атрибуты и методы.</p>
