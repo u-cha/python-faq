@@ -641,6 +641,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое runtime в тестировании?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -828,6 +837,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Вопросы на подумать
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -901,6 +932,15 @@
   <a href="#assert-python" class="md-nav__link">
     <span class="md-ellipsis">
       Для чего нужен assert в python и в каких случаях надо избегать использования этой конструкции?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое runtime в тестировании?
     </span>
   </a>
   
@@ -1187,6 +1227,40 @@ obj.my_method()  # выведет "Hello from new_method"
 <p>Для обязательных проверок лучше выбрасывать стандартные исключения (например, ValueError) через явные условия.</p>
 </li>
 </ul>
+<h2 id="runtime">Что такое runtime в тестировании?</h2>
+<p>В тестировании ПО runtime testing (или runtime verification) — это проверка поведения приложения во время его выполнения (runtime), когда код уже запущен и работает в реальных условиях, а не в статическом анализе.​</p>
+<p>Основные аспекты runtime в тестах:
+* Мониторинг в реальном времени: отслеживание памяти, CPU, утечек, исключений и производительности во время работы (например, с помощью профайлеров или RASP — Runtime Application Self-Protection).​</p>
+<ul>
+<li>
+<p>Динамическое обнаружение ошибок: выявление проблем, которые не видны на этапе компиляции/статического анализа, таких как race conditions, deadlock или переполнение стека.​</p>
+</li>
+<li>
+<p>Интеграция с CI/CD: автоматические тесты, запускаемые при деплое, проверяют приложение "в полевых условиях" (load testing, chaos engineering).​</p>
+</li>
+</ul>
+<p>Пример в Python</p>
+<pre><code class="language-python">import psutil
+import time
+
+def runtime_memory_test():
+    process = psutil.Process()
+    start_mem = process.memory_info().rss / 1024 / 1024  # MB
+    # ... нагрузка ...
+    end_mem = process.memory_info().rss / 1024 / 1024
+    assert end_mem - start_mem &lt; 100, &quot;Утечка памяти!&quot;
+</code></pre>
+<p>Отличается от compile-time (статические проверки до запуска) и unit-тестов (изолированные модули)</p>
+<p><strong>Compile-time (время компиляции)</strong></p>
+<p>Compile-time — это этап до запуска программы, когда код проверяется статически: синтаксис, типы (в строго типизированных языках), линтеры (flake8, mypy), статический анализ (pylint).​
+Ошибки вроде SyntaxError или NameError ловятся здесь, без выполнения кода. В Python это минимально (интерпретируемый), но расширяется инструментами.
+Пример: mypy script.py находит проблемы типизации до запуска.</p>
+<p><strong>Unit-тесты (модульные тесты)</strong></p>
+<p>Unit-тесты — это изолированные проверки отдельных функций/методов (с pytest, unittest), где моки (MagicMock) заменяют внешние зависимости (БД, API).​
+Они запускаются в контролируемой среде, не в реальном приложении, и проверяют логику, а не интеграцию/производительность.
+Пример: def test_add(): assert add(2, 3) == 5 — чистая функция без side-effects.</p>
+<p><strong>Разница с runtime-тестированием</strong></p>
+<p>Runtime-тесты работают во время выполнения полного приложения: мониторят реальные ресурсы (память, CPU), нагрузку, взаимодействия. Unit/compile-time не видят динамических проблем вроде утечек памяти или race conditions под нагрузкой</p>
 
 
 

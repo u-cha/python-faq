@@ -645,7 +645,43 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
+      Зеленые потоки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
       Статьи по асинхронному программированию
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое потокобезопасность?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как связаны потокобезопасность и состояние гонки и почему это разные понятия?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как обеспечить потокобезопасность и избежать состояния гонки?
     </span>
   </a>
   
@@ -882,6 +918,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Вопросы на подумать
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1008,7 +1066,43 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
+      Зеленые потоки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
       Статьи по асинхронному программированию
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое потокобезопасность?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как связаны потокобезопасность и состояние гонки и почему это разные понятия?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как обеспечить потокобезопасность и избежать состояния гонки?
     </span>
   </a>
   
@@ -1641,13 +1735,160 @@ for value in main_generator():
 </ul>
 <p>Когда подкорутина завершает выполнение через return, её возвращаемое значение автоматически передаётся в основную корутину, которая продолжает выполнение с места после yield from. Это позволяет строить сложные workflows, где результаты работы одних корутин естественным образом передаются другим.</p>
 <hr />
-<h2 id="_6">Статьи по асинхронному программированию</h2>
+<h2 id="_6">Зеленые потоки</h2>
+<p>Зеленые потоки (green threads) являются примитивным уровнем асинхронного программирования.<br />
+Зеленый поток — это обычный поток, за исключением того, что переключения между потоками производятся в коде приложения, а не в процессоре. <br />
+<code>Gevent</code> — известная Python-библиотека для использования зеленых потоков неблокирующего ввода-вывода <code>Eventlet</code>. <code>Gevent.monkey</code> изменяет поведение стандартных библиотек Python таким образом, что они позволяют выполнять неблокирующие операции ввода-вывода. <br />
+Вот пример использования <code>Gevent</code> для одновременного обращения к нескольким URL-адресам:</p>
+<pre><code>import gevent.monkey
+from urllib.request import urlopen
+gevent.monkey.patch_all()
+urls = ['http://www.google.com', 'http://www.yandex.ru', 'http://www.python.org']
+
+def print_head(url):
+    print('Starting {}'.format(url))
+    data = urlopen(url).read()
+    print('{}: {} bytes: {}'.format(url, len(data), data))
+
+jobs = [gevent.spawn(print_head, _url) for _url in urls]
+
+gevent.wait(jobs)
+</code></pre>
+<p>Как видите, API-интерфейс Gevent выглядит так же, как и потоки. <br />
+Однако за кадром он использует сопрограммы (coroutines), а не потоки, и запускает их в цикле событий (event loop) для постановки в очередь. Это значит, что вы получаете преимущества потоков, без понимания сопрограмм, но вы не избавляетесь от проблем, связанных с потоками. <br />
+<code>Gevent</code> — хорошая библиотека, но только для тех, кто понимает, как работают потоки.</p>
+<h2 id="_7">Статьи по асинхронному программированию</h2>
 <p><a href="https://thecode.media/asinkhronnyj-kod-na-python-sintaksis-i-osobennosti/">Асинхронный код на Python: синтаксис и особенности</a> </p>
 <p><a href="https://sky.pro/wiki/python/asinhronnoe-programmirovanie-na-python-osnovy-i-primery/">Асинхронное программирование на Python: основы и примеры</a></p>
 <p><a href="https://habr.com/ru/articles/667630/">Асинхронный python без головной боли (часть 1)</a></p>
 <p><a href="https://sorokin.engineer/posts/ru/python_async.html">Несинхронный Python</a></p>
 <p><a href="https://habr.com/ru/companies/kts/articles/713084/">Разбираемся в асинхронности: где полезно, а где — нет?</a></p>
 <p><a href="https://habr.com/ru/articles/667630/">Цикл статей "Асинхронный python без головной боли"</a></p>
+<p><a href="https://tproger.ru/translations/asynchronous-programming-in-python">Асинхронное программирование в Python</a></p>
+<h2 id="_8">Что такое потокобезопасность?</h2>
+<p>Потокобезопасность (thread safety) — это свойство кода, функции или объекта, которое гарантирует корректную работу при одновременном доступе из нескольких потоков.
+Другими словами, потокобезопасный код не сломается и не даст неверных результатов, даже если его используют несколько потоков одновременно.
+В потокобезопасной программе потоки могут свободно обращаться к одним и тем же структурам данных, ведь механизм синхронизации всегда поддерживает их в согласованном состоянии.</p>
+<h2 id="_9">Как связаны потокобезопасность и состояние гонки и почему это разные понятия?</h2>
+<p>Понятия потокобезопасности и состояния гонки (race condition) тесно связаны, но они не являются синонимами. Наоборот, это взаимоисключающие состояния: одно описывает желаемую характеристику кода, а другое — ошибку, возникающую при её отсутствии.</p>
+<p><strong>Состояние гонки</strong> — это проблема, которая возникает, когда несколько потоков одновременно читают и/или изменяют общий ресурс (например, переменную), и результат зависит от случайного порядка выполнения.
+<strong>Потокобезопасность</strong> — это свойство кода, которое гарантирует отсутствие таких проблем, то есть исключает состояние гонки.</p>
+<p>Если в коде возможно состояние гонки — значит, он не является потокобезопасным.
+Если код потокобезопасен — состояние гонки в нём невозможно по определению.</p>
+<h2 id="_10">Как обеспечить потокобезопасность и избежать состояния гонки?</h2>
+<p>В Python обеспечение потокобезопасности и предотвращение состояния гонки (race condition) требует особого внимания, несмотря на наличие GIL (Global Interpreter Lock). GIL защищает интерпретатор Python от одновременного выполнения байт-кода в нескольких потоках, но не гарантирует потокобезопасность на уровне логики программы, особенно при работе с разделяемыми переменными.</p>
+<p>Ниже приведены основные способы обеспечения потокобезопасности в Python:</p>
+<ol>
+<li><strong>Использование threading.Lock (мьютексов)</strong>
+Это самый распространённый способ защиты критических секций.</li>
+</ol>
+<pre><code class="language-python">import threading
+
+counter = 0
+lock = threading.Lock()
+
+def increment():
+    global counter
+    for _ in range(100000):
+        with lock:  # или lock.acquire() / lock.release()
+            counter += 1
+
+t1 = threading.Thread(target=increment)
+t2 = threading.Thread(target=increment)
+
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+print(counter)  # Без lock могло бы быть &lt; 200000```
+</code></pre>
+<p>Важно: GIL не защищает от race condition при операциях вроде counter += 1, так как это не атомарная операция (читает, изменяет, записывает).</p>
+<ol>
+<li><strong>Атомарные операции и встроенные потокобезопасные структуры</strong>  </li>
+</ol>
+<p>Некоторые операции и структуры данных в Python частично потокобезопасны благодаря GIL:</p>
+<ul>
+<li>Методы <code>.append()</code>, <code>.pop()</code> у списков — атомарны.</li>
+<li>Операции присваивания по ключу в <code>dict</code> — атомарны.</li>
+<li>
+<p>Но составные операции (например, <code>if key in d: d[key] += 1</code>) — <strong>не атомарны</strong> и требуют блокировки.
+⚠️ Не полагайтесь на GIL для потокобезопасности логики!</p>
+</li>
+<li>
+<p><strong>Использование queue.Queue для обмена данными между потоками</strong></p>
+</li>
+</ul>
+<p>Модуль queue предоставляет встроенные потокобезопасные очереди:</p>
+<pre><code class="language-python">import queue
+import threading
+
+q = queue.Queue()
+
+def producer():
+    for i in range(5):
+        q.put(i)
+
+def consumer():
+    while True:
+        item = q.get()
+        if item is None:
+            break
+        print(f&quot;Got {item}&quot;)
+        q.task_done()
+
+t1 = threading.Thread(target=producer)
+t2 = threading.Thread(target=consumer)
+t2.daemon = True
+
+t1.start()
+t2.start()
+q.join()
+</code></pre>
+<p><code>queue.Queue</code> использует внутренние блокировки и условные переменные, поэтому безопасен для многопоточного использования.</p>
+<ol>
+<li><strong>Использование threading.local() для локальных данных потока</strong></li>
+</ol>
+<p>Если каждый поток должен иметь свои собственные данные:</p>
+<pre><code>import threading
+
+local_data = threading.local()
+
+def process():
+    local_data.value = threading.current_thread().name
+    print(local_data.value)
+
+t1 = threading.Thread(target=process)
+t2 = threading.Thread(target=process)
+
+t1.start()
+t2.start()
+</code></pre>
+<p>Это избегает гонок, так как данные не разделяются.</p>
+<ol>
+<li><strong>Использование concurrent.futures.ThreadPoolExecutor</strong></li>
+</ol>
+<p>Хотя это не решает гонки напрямую, упрощает управление потоками и позволяет лучше структурировать код, минимизируя разделяемое состояние.</p>
+<pre><code class="language-python">from concurrent.futures import ThreadPoolExecutor
+
+shared_counter = 0
+lock = threading.Lock()
+
+def task(n):
+    global shared_counter
+    for _ in range(n):
+        with lock:
+            shared_counter += 1
+
+with ThreadPoolExecutor(max_workers=2) as executor:
+    executor.map(task, [100000, 100000])
+
+print(shared_counter)
+</code></pre>
+<ol>
+<li><strong>Альтернатива: отказ от потоков в пользу процессов (multiprocessing)</strong></li>
+</ol>
+<p>Если задача CPU-bound и не требует частого обмена данными, используйте multiprocessing. У каждого процесса — своё пространство памяти, поэтому состояния гонки невозможны, но обмен данными сложнее.</p>
 
 
 

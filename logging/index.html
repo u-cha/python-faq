@@ -6,17 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Вопросы и ответы по паттернам на сайте-методичке Python FAQ.">
+        <meta name="description" content="Вопросы и ответы по логгированию Python на сайте-методичке Python FAQ.">
       
       
       
-        <link rel="canonical" href="https://u-cha.github.io/python-faq/patterns/">
+        <link rel="canonical" href="https://u-cha.github.io/python-faq/logging/">
       
       
-        <link rel="prev" href="../oop/">
-      
-      
-        <link rel="next" href="../async/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +20,7 @@
     
     
       
-        <title>Patterns - Python FAQ</title>
+        <title>Логгирование - Python FAQ</title>
       
     
     
@@ -58,11 +54,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Patterns - Python FAQ" >
+        <meta  property="og:title"  content="Логгирование - Python FAQ" >
       
-        <meta  property="og:description"  content="Вопросы и ответы по паттернам на сайте-методичке Python FAQ." >
+        <meta  property="og:description"  content="Вопросы и ответы по логгированию Python на сайте-методичке Python FAQ." >
       
-        <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/patterns.png" >
+        <meta  property="og:image"  content="https://u-cha.github.io/python-faq/assets/images/social/logging.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -70,15 +66,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://u-cha.github.io/python-faq/patterns/" >
+        <meta  property="og:url"  content="https://u-cha.github.io/python-faq/logging/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Patterns - Python FAQ" >
+        <meta  name="twitter:title"  content="Логгирование - Python FAQ" >
       
-        <meta  name="twitter:description"  content="Вопросы и ответы по паттернам на сайте-методичке Python FAQ." >
+        <meta  name="twitter:description"  content="Вопросы и ответы по логгированию Python на сайте-методичке Python FAQ." >
       
-        <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/patterns.png" >
+        <meta  name="twitter:image"  content="https://u-cha.github.io/python-faq/assets/images/social/logging.png" >
       
     
     
@@ -94,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adapter-pattern" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Patterns
+              Логгирование
             
           </span>
         </div>
@@ -473,30 +469,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Паттерны
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../patterns/" class="md-nav__link">
         
   
   
@@ -507,33 +483,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#adapter-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adapter Pattern
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -830,9 +779,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adapter-pattern" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Adapter Pattern
+      Какие библиотеки используют для логгирования? И что обычно выводят в логах?
     </span>
   </a>
   
@@ -857,47 +806,47 @@
   
 
 
-  <h1>Паттерны</h1>
+  <h1>Логгирование</h1>
 
-<h2 id="adapter-pattern">Adapter Pattern</h2>
-<p><strong>Адаптер</strong> — это структурный паттерн, который позволяет подружить несовместимые объекты. Адаптер выступает прослойкой между двумя объектами, превращая вызовы одного в вызовы понятные другому.</p>
-<p><strong>Суть паттерна:</strong></p>
-<p>Есть класс или объект с определённым интерфейсом, который неудобен или несовместим с остальной системой. Создаётся адаптер — новый класс, реализующий нужный клиенту интерфейс.
-Адаптер содержит ссылку на оригинальный объект и внутри методов преобразует вызовы клиента в вызовы методов оригинального объекта.</p>
-<p>Пример реализации:</p>
-<pre><code>class OldSystem:
-    def old_method(self):
-        print(&quot;Старый метод&quot;)
-
-class Adapter:
-    def __init__(self, old_system):
-        self.old_system = old_system
-
-    def new_method(self):
-        print(&quot;Адаптер вызывает:&quot;)
-        self.old_system.old_method()
-
-# Использование
-old = OldSystem()
-adapter = Adapter(old)
-adapter.new_method()
-</code></pre>
-<p>Вывод:</p>
-<pre><code>Адаптер вызывает:
-Старый метод
-</code></pre>
-<p><strong>Использование:</strong></p>
+<h3 id="_1">Какие библиотеки используют для логгирования? И что обычно выводят в логах?</h3>
+<p>Для логирования в Python обычно используют стандартный модуль logging, а в более удобных обвязках и side‑проектах нередко подключают loguru или structlog для структурированных логов. </p>
+<p>Чаще всего в продакшен‑проектах используют:
+* logging из стандартной библиотеки — как базовый и «обязательный» минимум.</p>
 <ul>
-<li>Когда нужно использовать сторонний или legacy класс с несовместимым интерфейсом.</li>
-<li>Для объединения нескольких интерфейсов в один.</li>
-<li>Для адаптации классов, которые нельзя модифицировать.</li>
+<li>
+<p>loguru — когда нужен более простой и быстрый в настройке логгер, ротация файлов из коробки и красивый вывод.​</p>
+</li>
+<li>
+<p>structlog, python-json-logger — если нужны структурированные JSON‑логи, которые удобно парсить в ELK, Loki, ClickHouse и т.п.​</p>
+</li>
 </ul>
-<p>Паттерн помогает создавать гибкие и расширяемые системы, позволяя переиспользовать существующий код без изменения.</p>
-<p><strong>Что меняет паттерн адаптер?</strong></p>
-<p>Паттерн Адаптер (Adapter) меняет интерфейс одного класса или объекта так, чтобы он мог работать с другим, несовместимым интерфейсом. Он «подгоняет» один класс под API, который ожидают другие компоненты.</p>
-<p><strong>Меняет ли адаптер поведение?</strong></p>
-<p>Нет, адаптер не меняет поведение объекта. Он только изменяет интерфейс, через который к этому поведению обращаются. Адаптер просто перенаправляет или преобразует вызовы
-Пример, как переходник для розетки — сам по себе он ничего не делает, только позволяет подключить устройство.</p>
+<p>Типичный лог записи в веб‑/микросервисах содержит:</p>
+<ul>
+<li>
+<p>Время и уровень (INFO, WARNING, ERROR, DEBUG).</p>
+</li>
+<li>
+<p>Имя сервиса/модуля и идентификатор запроса или трассировки (request_id, trace_id).</p>
+</li>
+<li>
+<p>Краткое сообщение: что произошло (например, «запрос к внешнему API», «получена ошибка при записи в БД»).</p>
+</li>
+<li>
+<p>Важные параметры контекста: HTTP‑метод и путь, код ответа, id пользователя, ключевые аргументы функции, время выполнения.</p>
+</li>
+</ul>
+<p>Для ошибок и исключений обычно логируют:</p>
+<ul>
+<li>
+<p>Стек‑трейс (traceback) целиком, чтобы можно было воспроизвести проблему.</p>
+</li>
+<li>
+<p>Причину и тип ошибки, а также ключевые параметры, которые к ней привели (ids, входные данные в безопасном виде).</p>
+</li>
+<li>
+<p>В продакшене — без чувствительных данных (пароли, токены, персональные данные), чтобы не утекла безопасность.</p>
+</li>
+</ul>
 
 
 
