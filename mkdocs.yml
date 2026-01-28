@@ -26,6 +26,7 @@ nav:
   - Базы данных: db.md
   - Лайвкодинг: livecoding.md
   - Изменения в проекте: changelog.md
+  - Вопросы на подумать: interview.md
   #- Шаблон: template.md
 
 plugins:
