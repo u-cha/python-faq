@@ -25,8 +25,8 @@ nav:
       - Линтеры: linters.md
   - Базы данных: db.md
   - Лайвкодинг: livecoding.md
-  - Изменения в проекте: changelog.md
   - Вопросы на подумать: interview.md
+  - Изменения в проекте: changelog.md
   #- Шаблон: template.md
 
 plugins:

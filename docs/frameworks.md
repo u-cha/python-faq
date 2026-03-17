@@ -594,7 +594,11 @@ ModelSerializer и Serializer работают одинаково, но **ModelS
 https://habr.com/ru/companies/yandex_praktikum/articles/598349/
 
 ---
-## Как оптимизировать QuerySet? (select_related, prefetch_related)
+## Проблема N+1 запросов в ORM? (select_related, prefetch_related)
+
+Проблема N+1 запросов возникает, когда приложение сначала выполняет один запрос для получения списка объектов, а затем для каждого объекта выполняет отдельный запрос для получения связанных данных. Вместо одного запроса получается N+1 запросов, где N — количество объектов в выборке.
+
+**Django**
 
 **QuerySet** — это фундаментальное понятие в Django, которое представляет собой коллекцию объектов из базы данных.
 
@@ -644,6 +648,72 @@ _Синтаксис_:
     queryset.prefetch_related('related_field')
     
     authors = Author.objects.prefetch_related('book_set').all()
+
+**SQLAlchemy ORM-подход (объекты)**
+
+**Проблемный код (N+1):**
+```python
+authors = session.query(Author).all()  # 1 запрос
+for author in authors:
+    print(len(author.posts))  # Каждая итерация → новый запрос (N раз)
+```
+
+**Решение через joinedload (один запрос с JOIN):**
+```python
+from sqlalchemy.orm import joinedload
+
+authors = session.query(Author).options(
+    joinedload(Author.posts)
+).all()  # 1 запрос с JOIN
+```
+
+**Решение через selectinload (два запроса с IN):**
+```python
+from sqlalchemy.orm import selectinload
+
+authors = session.query(Author).options(
+    selectinload(Author.posts)
+).all()  # 2 запроса: авторы + посты WHERE id IN (...)
+```
+
+**SQLAlchemy Core-подход (таблицы)**
+
+**Проблемный код (N+1):**
+```python
+authors = conn.execute(select(authors)).fetchall()  # 1 запрос
+for author in authors:
+    posts = conn.execute(                         # N запросов
+        select(posts).where(posts.c.author_id == author.id)
+    ).fetchall()
+    print(len(posts))
+```
+
+**Решение через JOIN (один запрос):**
+```python
+stmt = select(authors, posts).join(
+    posts, authors.c.id == posts.c.author_id
+)
+rows = conn.execute(stmt).fetchall()  # 1 запрос
+# Группировка данных в Python
+```
+
+**Решение через IN (два запроса):**
+```python
+authors = conn.execute(select(authors)).fetchall()  # 1 запрос
+ids = [a.id for a in authors]
+
+posts = conn.execute(
+    select(posts).where(posts.c.author_id.in_(ids))
+).fetchall()  # 2-й запрос
+# Группировка постов по author_id в Python
+```
+
+**Сравнение подходов**
+
+| | Django | SQLAlchemy ORM | SQLAlchemy Core |
+|---|---|---|---|
+| **Foreign key** | `select_related` | `joinedload` | `JOIN` |
+| **Many-to-many** | `prefetch_related` | `selectinload` | `IN (…)` |
 
 Статьи на хабре - [Как работают select_related и prefetch_related в Django ](https://habr.com/ru/articles/752574/)https://habr.com/ru/articles/752574/
 
