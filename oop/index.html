@@ -509,6 +509,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#self" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое self в методах класса?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       Магические методы
@@ -521,6 +530,24 @@
   <a href="#init-new" class="md-nav__link">
     <span class="md-ellipsis">
       Отличие init() от new()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__getattr__-__getattribute__" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отличие __getattr__ от __getattribute__
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__repr__-__str__" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отличие __repr__ от __str__
     </span>
   </a>
   
@@ -572,6 +599,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#classmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем отличается первый аргумент classmethod от метода экземпляра?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       Метаклассы
@@ -611,6 +647,24 @@
   <a href="#class" class="md-nav__link">
     <span class="md-ellipsis">
       Является ли ключевое слово class объектом?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какой метод вызывается при удалении объекта?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какой метод должен быть реализован в классе, чтобы его экземпляр можно было использовать как декоратор функций?
     </span>
   </a>
   
@@ -876,12 +930,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
+      <a href="../interview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Изменения в проекте
+    Вопросы на подумать
     
   </span>
   
@@ -898,12 +952,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../interview/" class="md-nav__link">
+      <a href="../changelog/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Вопросы на подумать
+    Изменения в проекте
     
   </span>
   
@@ -947,6 +1001,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#self" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое self в методах класса?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       Магические методы
@@ -959,6 +1022,24 @@
   <a href="#init-new" class="md-nav__link">
     <span class="md-ellipsis">
       Отличие init() от new()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__getattr__-__getattribute__" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отличие __getattr__ от __getattribute__
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__repr__-__str__" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отличие __repr__ от __str__
     </span>
   </a>
   
@@ -1010,6 +1091,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#classmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем отличается первый аргумент classmethod от метода экземпляра?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       Метаклассы
@@ -1049,6 +1139,24 @@
   <a href="#class" class="md-nav__link">
     <span class="md-ellipsis">
       Является ли ключевое слово class объектом?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какой метод вызывается при удалении объекта?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какой метод должен быть реализован в классе, чтобы его экземпляр можно было использовать как декоратор функций?
     </span>
   </a>
   
@@ -1147,6 +1255,37 @@ print(obj._MyClass__private_field)     # ✅ Вернёт &quot;приватно
 Когда вы используете педаль газа, вам важно знать что она делает (автомобиль ускоряется), а не как это происходит (впрыск топлива, работа цилиндров, трансмиссии). Все сложные механизмы скрыты — вы взаимодействуете с простым интерфейсом (педалью), который абстрагирует всю техническую сложность.
 Таким образом, абстракция позволяет работать с объектами на концептуальном уровне, скрывая ненужные детали реализации.</p>
 <hr />
+<h2 id="self">Что такое <code>self</code> в методах класса?</h2>
+<p><code>self</code> — это ссылка на <strong>текущий экземпляр класса</strong> (на самого себя). </p>
+<p><strong>Как работает</strong></p>
+<pre><code class="language-python">class Person:
+    def __init__(self, name):  # self — новый объект
+        self.name = name        # сохраняем имя В ЭТОТ объект
+
+    def hello(self):            # self — конкретный объект
+        print(f&quot;Привет, я {self.name}&quot;)
+
+p = Person(&quot;Анна&quot;)  # self внутри = p
+p.hello()          # self внутри = p → &quot;Привет, я Анна&quot;
+</code></pre>
+<p><strong>Что происходит на самом деле</strong></p>
+<pre><code class="language-python">p.hello()          # Python превращает в:
+Person.hello(p)    # self = p (объект передается первым аргументом)
+</code></pre>
+<p><strong>Главные правила</strong></p>
+<ol>
+<li><strong>Первый параметр</strong> любого метода экземпляра — <code>self</code></li>
+<li><strong>Не нужно передавать</strong> при вызове — Python подставляет автоматически</li>
+<li><strong>Через self</strong> обращаемся к атрибутам и методам объекта</li>
+</ol>
+<p><strong>Итоги</strong></p>
+<ul>
+<li><code>self</code> — это сам объект, от которого вызван метод</li>
+<li>Нужен для доступа к атрибутам и другим методам</li>
+<li>Без <code>self</code> метод не знает, с каким именно объектом работать</li>
+<li>Можно назвать по-другому, но все используют <code>self</code></li>
+</ul>
+<hr />
 <h2 id="_2">Магические методы</h2>
 <p><strong>Магические методы</strong> (иногда также называемые специальными методами или dunder-методами от "double underscore methods" — то есть "методы с двойным подчеркиванием", то есть  начинаются и заканчиваются двумя подчеркиваниями (например, <code>__init__()</code>). Это специальные методы, которые необходимы для реализации базовых операций над объектами. Благодаря этим методам объекты могут реализовывать, поддерживать и взаимодействовать с базовыми конструкциями языка, а именно:</p>
 <ul>
@@ -1223,6 +1362,203 @@ print(obj._MyClass__private_field)     # ✅ Вернёт &quot;приватно
         return cls._instance
 </code></pre>
 <p><code>__init__()</code> применяется постоянно — для начальной настройки созданных объектов и установки их начального состояния.</p>
+<hr />
+<h2 id="__getattr__-__getattribute__">Отличие <code>__getattr__</code> от <code>__getattribute__</code></h2>
+<p>Это два магических метода, которые перехватывают доступ к атрибутам объекта. Главное отличие — <strong>когда они вызываются</strong>.</p>
+<p><strong><code>__getattribute__</code> — перехватывает ВСЁ</strong></p>
+<p>Вызывается <strong>при любом обращении</strong> к любому атрибуту — существующему или нет.</p>
+<pre><code class="language-python">class Test:
+    def __init__(self):
+        self.name = &quot;Анна&quot;
+
+    def __getattribute__(self, name):
+        print(f&quot;Перехвачен доступ к: {name}&quot;)
+        # Обязательно вызываем родительский метод, иначе всё сломается
+        return super().__getattribute__(name)
+
+obj = Test()
+print(obj.name)  # Перехвачен доступ к: name → Анна
+print(obj.age)   # Перехвачен доступ к: age → AttributeError
+</code></pre>
+<p><strong>Особенности:</strong></p>
+<ul>
+<li>Срабатывает <strong>всегда</strong> при обращении к атрибуту</li>
+<li>Должен вызывать <code>super().__getattribute__()</code> для реального доступа</li>
+<li>Легко создать бесконечную рекурсию</li>
+</ul>
+<hr />
+<p><strong><code>__getattr__</code> — перехватывает только отсутствующее</strong></p>
+<p>Вызывается <strong>только если атрибут не найден</strong> обычным способом.</p>
+<pre><code class="language-python">class Test:
+    def __init__(self):
+        self.name = &quot;Анна&quot;
+
+    def __getattr__(self, name):
+        print(f&quot;Атрибут {name} не найден, создаём...&quot;)
+        return f&quot;Значение для {name}&quot;
+
+obj = Test()
+print(obj.name)     # Анна (__getattr__ НЕ вызван)
+print(obj.age)      # Атрибут age не найден → &quot;Значение для age&quot;
+</code></pre>
+<p><strong>Особенности:</strong></p>
+<ul>
+<li>Срабатывает <strong>только для отсутствующих</strong> атрибутов</li>
+<li>Не нужно вызывать <code>super()</code></li>
+<li>Безопаснее, нет риска рекурсии</li>
+</ul>
+<p><strong>Сравнение в таблице</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>__getattribute__</code></th>
+<th><code>__getattr__</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Когда вызывается</strong></td>
+<td>При любом доступе к атрибуту</td>
+<td>Только если атрибут не найден</td>
+</tr>
+<tr>
+<td><strong>Для существующих атрибутов</strong></td>
+<td>✅ Да</td>
+<td>❌ Нет</td>
+</tr>
+<tr>
+<td><strong>Для несуществующих</strong></td>
+<td>✅ Да</td>
+<td>✅ Да</td>
+</tr>
+<tr>
+<td><strong>Риск рекурсии</strong></td>
+<td>Высокий</td>
+<td>Низкий</td>
+</tr>
+<tr>
+<td><strong>Нужен super()</strong></td>
+<td>Обязательно</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td><strong>Типичное использование</strong></td>
+<td>Логирование, контроль доступа</td>
+<td>Значения по умолчанию, динамические атрибуты</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Главное правило</strong></p>
+<ul>
+<li><code>__getattribute__</code> — <strong>всегда первый</strong></li>
+<li>Если атрибут есть — он возвращает значение и всё</li>
+<li>Если атрибута нет — после <code>__getattribute__</code> вызывается <code>__getattr__</code></li>
+</ul>
+<hr />
+<h2 id="__repr__-__str__">Отличие <code>__repr__</code> от <code>__str__</code></h2>
+<p>Оба метода возвращают строковое представление объекта, но для разных целей.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>__repr__</code></th>
+<th><code>__str__</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Для кого</strong></td>
+<td>Для разработчиков - Форматное представление</td>
+<td>Для пользователей - Неформатное представление</td>
+</tr>
+<tr>
+<td><strong>Цель</strong></td>
+<td>Однозначная идентификация объекта</td>
+<td>Читаемое представление</td>
+</tr>
+<tr>
+<td><strong>Где используется</strong></td>
+<td>Консоль, отладка, логи</td>
+<td><code>print()</code>, <code>str()</code></td>
+</tr>
+<tr>
+<td><strong>Должен ли быть eval</strong></td>
+<td>Желательно (<code>eval(repr(obj)) == obj</code>)</td>
+<td>Не обязательно</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>__repr__</code> — для разработчиков</strong></p>
+<p>Должен быть максимально информативным, часто показывает тип и важные атрибуты.</p>
+<pre><code class="language-python">class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f&quot;Point(x={self.x}, y={self.y})&quot;
+
+p = Point(3, 5)
+print(repr(p))      # Point(x=3, y=5)
+print(p)            # По умолчанию тоже repr
+</code></pre>
+<p><strong>В консоли:</strong></p>
+<pre><code class="language-python">&gt;&gt;&gt; p = Point(3, 5)
+&gt;&gt;&gt; p  # автоматически вызывается __repr__
+Point(x=3, y=5)
+</code></pre>
+<p><strong><code>__str__</code> — для пользователей</strong></p>
+<p>Дает "красивое" человекочитаемое представление.</p>
+<pre><code class="language-python">class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __repr__(self):
+        return f&quot;Person('{self.name}', {self.age})&quot;
+
+    def __str__(self):
+        return f&quot;{self.name} ({self.age} лет)&quot;
+
+p = Person(&quot;Анна&quot;, 25)
+print(repr(p))  # Person('Анна', 25)
+print(str(p))   # Анна (25 лет)
+print(p)        # Анна (25 лет) — print() вызывает str
+</code></pre>
+<p><strong>Иерархия вызовов</strong></p>
+<ol>
+<li><code>print(obj)</code> → ищет <code>__str__</code>, если нет → <code>__repr__</code></li>
+<li><code>str(obj)</code> → ищет <code>__str__</code>, если нет → <code>__repr__</code></li>
+<li><code>repr(obj)</code> → всегда <code>__repr__</code></li>
+<li>В консоли (интерактивной) → <code>__repr__</code></li>
+</ol>
+<pre><code class="language-python">class Demo:
+    def __repr__(self):
+        return &quot;Это repr&quot;
+
+    # __str__ не определен
+
+d = Demo()
+print(d)        # Это repr (str не нашелся)
+print(str(d))   # Это repr (str не нашелся)  
+print(repr(d))  # Это repr
+</code></pre>
+<p><strong>Главное</strong></p>
+<ul>
+<li>
+<p>Всегда определяйте <code>__repr__</code> — он нужен для отладки. <code>__str__</code> определяйте, если нужно красивое представление для пользователя.</p>
+</li>
+<li>
+<p><code>__repr__</code>— должен быть точным, желательно чтобы eval(repr(obj)) воссоздавал объект</p>
+</li>
+<li>
+<p><code>__str__</code>— должен быть читаемым для обычного пользователя</p>
+</li>
+<li>
+<p>Если определен только <code>__repr__</code>, он будет использоваться везде.</p>
+</li>
+</ul>
 <hr />
 <h2 id="mro">Что такое MRO?</h2>
 <p><strong>Method resolution order</strong> - порядок разрешения методов. Алгоритм, по которому следует искать метод в случае, если у класса два и более родителей.</p>
@@ -1375,7 +1711,7 @@ class D(B, C):
 </li>
 </ol>
 <p>Пример:</p>
-<pre><code>class PointSlots:
+<pre><code class="language-python">class PointSlots:
     __slots__ = ('x', 'y')  # Фиксированный набор атрибутов
 
     def __init__(self, x, y):
@@ -1385,13 +1721,12 @@ class D(B, C):
 p = PointSlots(1, 2)
 p.z = 3  # ❌ AttributeError: 'PointSlots' object has no attribute 'z'
 </code></pre>
-<p><code>__slots__</code>— это компромисс между гибкостью (возможность добавлять любые атрибуты) и производительностью (память + скорость).</p>
+<p><code>__slots__</code> — это компромисс между гибкостью (возможность добавлять любые атрибуты) и производительностью (память + скорость).</p>
 <p><strong>Объяснение работы <code>__slots__</code> при наследовании в Python 3.x:</strong></p>
 <ol>
 <li>
 <p><strong>Если родитель имеет <code>__slots__</code></strong>:<br />
-   Потомок наследует эти слоты <strong>автоматически</strong>, даже если определяет свой собственный <code>__slots__</code>.<br />
-   Нет необходимости явно включать слоты родителя (кроме случаев множественного наследования с конфликтующими слотами).</p>
+   Потомок наследует эти слоты <strong>автоматически</strong>, даже если определяет свой собственный <code>__slots__</code>.</p>
 </li>
 <li>
 <p><strong>Если потомок определяет свой <code>__slots__</code></strong>:<br />
@@ -1399,12 +1734,11 @@ p.z = 3  # ❌ AttributeError: 'PointSlots' object has no attribute 'z'
 </li>
 <li>
 <p><strong>Если потомок НЕ определяет свой <code>__slots__</code></strong>:<br />
-   Он наследует только слоты родителя и <strong>не получает <code>__dict__</code></strong> автоматически.</p>
+   Он наследует слоты родителя <strong>И получает <code>__dict__</code></strong>, что позволяет динамически добавлять новые атрибуты.</p>
 </li>
 <li>
 <p><strong>Множественное наследование</strong>:<br />
-   Python автоматически объединяет <code>__slots__</code> разных родителей.<br />
-   Если родители имеют одинаковые имена слотов — это нормально, слот считается общим.</p>
+   Python автоматически объединяет <code>__slots__</code> разных родителей, если их структуры совместимы. При конфликте возникает ошибка.</p>
 </li>
 </ol>
 <p><strong>Полная таблица наследования <code>__slots__</code></strong></p>
@@ -1428,25 +1762,25 @@ p.z = 3  # ❌ AttributeError: 'PointSlots' object has no attribute 'z'
 <td><strong>2. Родитель БЕЗ <code>__slots__</code></strong><br>Потомок СО <code>__slots__</code></td>
 <td>❌ Нет</td>
 <td>❌ Только слоты потомка</td>
-<td><code>__dict__</code> не наследуется</td>
+<td>Слоты потомка (<code>__dict__</code> родителя не наследуется)</td>
 </tr>
 <tr>
 <td><strong>3. Родитель СО <code>__slots__</code></strong><br>Потомок БЕЗ <code>__slots__</code></td>
-<td>❌ Нет</td>
-<td>❌ Только унаследованные слоты</td>
-<td>Слоты родителя</td>
+<td>✅ Да</td>
+<td>✅ Да</td>
+<td><strong>Слоты родителя + <code>__dict__</code></strong></td>
 </tr>
 <tr>
 <td><strong>4. Родитель СО <code>__slots__</code></strong><br>Потомок СО <code>__slots__</code></td>
 <td>❌ Нет</td>
 <td>❌ Только все слоты</td>
-<td>Слоты объединяются автоматически</td>
+<td>Слоты родителя и потомка объединяются</td>
 </tr>
 <tr>
 <td><strong>5. Класс с <code>'__dict__'</code> в <code>__slots__</code></strong></td>
 <td>✅ Да</td>
 <td>✅ Да</td>
-<td>Явное разрешение <code>__dict__</code></td>
+<td>Явное разрешение <code>__dict__</code> наряду со слотами</td>
 </tr>
 </tbody>
 </table>
@@ -1455,13 +1789,18 @@ p.z = 3  # ❌ AttributeError: 'PointSlots' object has no attribute 'z'
 class Parent:
     __slots__ = ['x']
 
+    def __init__(self):
+        self.x = 10
+
 class Child(Parent):
     pass  # Не определяет свой __slots__
 
 c = Child()
 c.x = 10  # ✅ Работает — унаследованный слот
-print(hasattr(c, '__dict__'))  # ❌ False — нет словаря!
-# c.y = 20  # ❌ AttributeError: нельзя создать новый атрибут
+print(hasattr(c, '__dict__'))  # ✅ True — словарь есть!
+c.y = 20  # ✅ Работает — через __dict__
+c.z = 30  # ✅ Работает — через __dict__
+print(c.__dict__)  # {'y': 20, 'z': 30}
 </code></pre>
 <pre><code class="language-python"># Случай 4 из таблицы: оба имеют slots
 class Parent:
@@ -1474,6 +1813,7 @@ c = Child()
 c.x = 10  # ✅ Работает
 c.y = 20  # ✅ Работает
 # c.z = 30  # ❌ Ошибка: нет слота 'z'
+print(hasattr(c, '__dict__'))  # ❌ False
 </code></pre>
 <pre><code class="language-python"># Множественное наследование
 class A:
@@ -1489,6 +1829,7 @@ obj = C()
 obj.a = 1  # ✅
 obj.b = 2  # ✅
 obj.c = 3  # ✅
+# obj.d = 4  # ❌ AttributeError
 </code></pre>
 <pre><code class="language-python"># Явное объединение слотов (рекомендуется для ясности)
 class Parent:
@@ -1497,13 +1838,55 @@ class Parent:
 class ExplicitChild(Parent):
     __slots__ = Parent.__slots__ + ['y']  # ✅ Понятно, что слоты объединены
 </code></pre>
+<pre><code class="language-python"># Случай с __dict__ в слотах
+class DynamicSlots:
+    __slots__ = ['x', '__dict__']  # Явно разрешаем __dict__
+
+obj = DynamicSlots()
+obj.x = 10     # ✅ Через слот
+obj.y = 20     # ✅ Через __dict__
+obj.z = 30     # ✅ Через __dict__
+print(obj.__dict__)  # {'y': 20, 'z': 30}
+print(obj.x)   # 10
+</code></pre>
 <p><strong>Ключевые выводы:</strong></p>
 <ol>
 <li>Слоты родителей автоматически наследуются в Python 3.x</li>
-<li>Наличие <code>__slots__</code> у родителя отключает <code>__dict__</code> для всей иерархии (если явно не восстановлен)</li>
-<li>Явное объединение слотов рекомендуется для документации и особых случаев</li>
-<li>Для восстановления динамических атрибутов добавьте <code>'__dict__'</code> в <code>__slots__</code></li>
+<li>Если потомок <strong>не определяет</strong> <code>__slots__</code>, он получает <strong>и слоты родителя, и <code>__dict__</code></strong> (в отличие от распространенного заблуждения)</li>
+<li>Если потомок <strong>определяет</strong> <code>__slots__</code>, <code>__dict__</code> отсутствует (если не добавлен явно)</li>
+<li>Для восстановления динамических атрибутов в классе со слотами добавьте <code>'__dict__'</code> в <code>__slots__</code></li>
+<li>При множественном наследовании все слоты родителей объединяются, если нет конфликтов структуры</li>
 </ol>
+<p><strong>Что изменилось в <code>__slots__</code> в новых версиях Python</strong></p>
+<ol>
+<li>
+<p><strong>Снижение эффективности экономии памяти</strong></p>
+<ul>
+<li>Раньше (версии 3.9-3.10): экономия 80-216 байт на объект</li>
+<li>Сейчас (версии 3.11-3.13): экономия 32-64 байта на объект</li>
+<li><strong>Причина</strong>: стандартные словари (<code>__dict__</code>) стали компактнее</li>
+</ul>
+</li>
+<li>
+<p><strong>Почти исчезло ускорение доступа к атрибутам</strong></p>
+<ul>
+<li>Раньше (версия 3.9): доступ через <code>__slots__</code> быстрее на <strong>62%</strong></li>
+<li>Сейчас (версия 3.13): быстрее всего на <strong>3%</strong></li>
+<li>В оптимизированных сборках разница <strong>стремится к 0%</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Исправление в Python 3.12</strong></p>
+<ul>
+<li>Исправлена ошибка с наследованием классов, использующих <code>property</code> и <code>__slots__</code> одновременно</li>
+</ul>
+</li>
+</ol>
+<p><strong>Практический вывод</strong></p>
+<ul>
+<li><strong>Python ≤ 3.10</strong>: <code>__slots__</code> даёт огромный выигрыш (используйте активно)</li>
+<li><strong>Python ≥ 3.11</strong>: выигрыш минимальный, используйте <strong>только если нужно запретить динамические атрибуты</strong>, а не ради производительности</li>
+</ul>
 <hr />
 <h2 id="_4">Дескрипторы</h2>
 <p>Дескрипторы в Python — это объекты, которые реализуют один или несколько специальных методов: <code>__get__()</code>, <code>__set__()</code> и <code>__delete__()</code>. Они позволяют контролировать доступ к атрибутам класса и определять дополнительное поведение при их получении, изменении или удалении.
@@ -1579,6 +1962,129 @@ print(MyClass.class_method())  # Выведет: 123
 print(MyClass.static_method())  # Выведет: This is a static method
 </code></pre>
 <p>Основное отличие между <strong><code>classmethod</code></strong> и <strong><code>staticmethod</code></strong> заключается в том, что <strong><code>classmethod</code></strong> принимает ссылку на класс, а <strong><code>staticmethod</code></strong> - нет.</p>
+<hr />
+<h2 id="classmethod">Чем отличается первый аргумент classmethod от метода экземпляра?</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Метод экземпляра</strong></th>
+<th><strong>Classmethod</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Первый аргумент</strong></td>
+<td><code>self</code></td>
+<td><code>cls</code></td>
+</tr>
+<tr>
+<td><strong>Что получает</strong></td>
+<td><strong>Сам объект</strong> (экземпляр)</td>
+<td><strong>Сам класс</strong> (не экземпляр!)</td>
+</tr>
+<tr>
+<td><strong>Доступ</strong></td>
+<td>К атрибутам конкретного объекта</td>
+<td>К атрибутам класса</td>
+</tr>
+<tr>
+<td><strong>Когда использовать</strong></td>
+<td>Когда работаем с данными объекта</td>
+<td>Когда работаем с классом в целом</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">class Student:
+    school = &quot;Школа №1&quot;  # Атрибут класса
+
+    def __init__(self, name):
+        self.name = name  # Атрибут экземпляра
+
+    # Метод экземпляра — получает self (конкретного студента)
+    def show_name(self):
+        print(f&quot;Студент: {self.name}&quot;)  # Данные конкретного объекта
+
+    # Classmethod — получает cls (класс Student)
+    @classmethod
+    def show_school(cls):
+        print(f&quot;Учебное заведение: {cls.school}&quot;)  # Данные класса
+
+    @classmethod
+    def create_anonymous(cls):
+        return cls(&quot;Аноним&quot;)  # Создает НОВЫЙ экземпляр класса
+
+# Использование
+s = Student(&quot;Маша&quot;)
+s.show_name()        # self = s (объект Маша)
+Student.show_school() # cls = Student (сам класс)
+anon = Student.create_anonymous()  # cls = Student, создает нового студента
+</code></pre>
+<p><strong>Что получают методы?</strong></p>
+<pre><code class="language-python">class Demo:
+    class_attr = &quot;общее&quot;
+
+    def __init__(self, value):
+        self.instance_attr = value
+
+    def instance_method(self):
+        print(f&quot;self = {self}&quot;)              # Конкретный объект
+        print(f&quot;Через self: {self.instance_attr}&quot;)  # Данные объекта
+        print(f&quot;Через self: {self.class_attr}&quot;)      # Тоже работает
+
+    @classmethod
+    def class_method(cls):
+        print(f&quot;cls = {cls}&quot;)                 # Сам класс
+        print(f&quot;Через cls: {cls.class_attr}&quot;)  # Данные класса
+        # cls.instance_attr — ОШИБКА! у класса нет атрибутов экземпляра
+
+obj = Demo(&quot;индивидуальное&quot;)
+obj.instance_method()  # self = &lt;__main__.Demo object at 0x...&gt;
+Demo.class_method()    # cls = &lt;class '__main__.Demo'&gt;
+</code></pre>
+<p><strong>Таблица сравнения</strong></p>
+<table>
+<thead>
+<tr>
+<th>Аспект</th>
+<th><code>self</code> (метод экземпляра)</th>
+<th><code>cls</code> (classmethod)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Что это</strong></td>
+<td>Экземпляр класса</td>
+<td>Сам класс</td>
+</tr>
+<tr>
+<td><strong>Когда вызывается</strong></td>
+<td><code>obj.method()</code></td>
+<td><code>Class.method()</code></td>
+</tr>
+<tr>
+<td><strong>Может менять</strong></td>
+<td>Атрибуты объекта</td>
+<td>Атрибуты класса</td>
+</tr>
+<tr>
+<td><strong>Может создавать</strong></td>
+<td>Новые атрибуты объекта</td>
+<td>Новые экземпляры класса</td>
+</tr>
+<tr>
+<td><strong>Доступ к атрибутам класса</strong></td>
+<td>Да (через <code>self.__class__</code>)</td>
+<td>Да (прямо через <code>cls</code>)</td>
+</tr>
+<tr>
+<td><strong>Доступ к атрибутам объекта</strong></td>
+<td>Да</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>self</code></strong> — это "конкретный объект", а <strong><code>cls</code></strong> — это "тип объекта" (сам класс).</p>
 <hr />
 <h2 id="_5">Метаклассы</h2>
 <p><strong>Метаклассы</strong> — это классы, которые определяют поведение других классов. Они используются для изменения способа, которым Python создает и обрабатывает классы.</p>
@@ -1873,6 +2379,82 @@ class C(B):
 <p>Ключевое слово <code>class</code> в Python не является объектом. Это синтаксическая конструкция (ключевое слово) языка программирования, которая используется для определения нового класса.</p>
 <p>Когда вы пишете <code>class</code>, вы создаёте описание (шаблон, определение) класса — не сам объект. Этот класс в свою очередь является объектом типа <code>type</code>. То есть класс — это объект, но ключевое слово <code>class</code> — нет.</p>
 <p>Ключевое слово <code>class</code> сообщает интерпретатору, что далее следует определение класса. В рантайме класс становится полноценным объектом, который можно присвоить переменной, использовать для создания экземпляров (объектов), добавлять атрибуты и методы.</p>
+<hr />
+<h2 id="_8">Какой метод вызывается при удалении объекта?</h2>
+<p><strong>Основной метод: <code>__del__()</code></strong></p>
+<pre><code class="language-python">class MyClass:
+    def __del__(self):
+        print(&quot;Объект удаляется&quot;)
+
+obj = MyClass()
+del obj  # Явное удаление → вызов __del__
+</code></pre>
+<p><strong>Важные особенности</strong></p>
+<ol>
+<li><strong><code>__del__</code> — деструктор</strong>, но работает <strong>не так, как в других языках</strong></li>
+<li><strong><code>del</code> не гарантирует немедленный вызов</strong> <code>__del__</code></li>
+<li>Вызывается <strong>сборщиком мусора</strong>, когда объект действительно удаляется</li>
+<li>При циклических ссылках может <strong>не вызваться вообще</strong></li>
+<li>Исключения внутри <code>__del__</code> <strong>подавляются</strong></li>
+</ol>
+<p><strong>Главный недостаток</strong></p>
+<pre><code class="language-python">obj = MyClass()
+del obj  # __del__ может вызваться сейчас... а может через секунду
+</code></pre>
+<p><strong>Нет гарантии</strong>, когда именно выполнится <code>__del__</code></p>
+<p><strong>Альтернатива</strong></p>
+<p>Для гарантированной очистки используйте <strong>контекстные менеджеры</strong>:</p>
+<pre><code class="language-python">class Resource:
+    def __enter__(self): ...
+    def __exit__(self, *args): ...  # ← Гарантированно выполнится
+
+with Resource() as r:  # __exit__ вызовется сразу после блока
+    pass
+</code></pre>
+<p><strong>Итоги</strong></p>
+<ul>
+<li><code>__del__</code> существует, но <strong>ненадежен</strong> для критической очистки</li>
+<li>Используйте <strong><code>with</code> и контекстные менеджеры</strong> для гарантированного освобождения ресурсов</li>
+<li><code>__del__</code> лучше вообще не использовать в реальном коде</li>
+</ul>
+<hr />
+<h2 id="_9">Какой метод должен быть реализован в классе, чтобы его экземпляр можно было использовать как декоратор функций?</h2>
+<p>Чтобы экземпляр класса можно было использовать как декоратор, класс должен реализовать метод <strong><code>__call__</code></strong>. Этот метод делает объект <strong>вызываемым</strong> (callable).</p>
+<pre><code class="language-python">class Counter:
+    def __init__(self):
+        self.count = 0
+
+    def __call__(self, func):
+        def wrapper(*args, **kwargs):
+            self.count += 1
+            print(f&quot;Вызов #{self.count}&quot;)
+            return func(*args, **kwargs)
+        return wrapper
+
+counter = Counter()
+
+@counter
+def say(message):
+    print(message)
+
+say(&quot;Привет&quot;)  # Вызов #1 → Привет
+say(&quot;Пока&quot;)    # Вызов #2 → Пока
+</code></pre>
+<p><strong>Что происходит под капотом</strong></p>
+<pre><code class="language-python"># Запись:
+@counter
+def say(message): ...
+
+# Превращается в:
+say = counter(say)  # counter.__call__(say)
+</code></pre>
+<p><strong>Случаи использования</strong></p>
+<ul>
+<li>Когда нужно <strong>сохранять состояние</strong> между вызовами (счетчики, кэши)</li>
+<li>Когда нужна <strong>сложная инициализация</strong> с параметрами</li>
+<li>Когда логика декоратора требует <strong>нескольких методов</strong> класса</li>
+</ul>
+<p>Класс с <code>__call__</code> = вызываемый объект = может быть декоратором</p>
 
 
 

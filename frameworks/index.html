@@ -647,9 +647,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#queryset-select_related-prefetch_related" class="md-nav__link">
+  <a href="#n1-orm-select_related-prefetch_related" class="md-nav__link">
     <span class="md-ellipsis">
-      Как оптимизировать QuerySet? (select_related, prefetch_related)
+      Проблема N+1 запросов в ORM? (select_related, prefetch_related)
     </span>
   </a>
   
@@ -930,12 +930,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
+      <a href="../interview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Изменения в проекте
+    Вопросы на подумать
     
   </span>
   
@@ -952,12 +952,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../interview/" class="md-nav__link">
+      <a href="../changelog/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Вопросы на подумать
+    Изменения в проекте
     
   </span>
   
@@ -1073,9 +1073,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#queryset-select_related-prefetch_related" class="md-nav__link">
+  <a href="#n1-orm-select_related-prefetch_related" class="md-nav__link">
     <span class="md-ellipsis">
-      Как оптимизировать QuerySet? (select_related, prefetch_related)
+      Проблема N+1 запросов в ORM? (select_related, prefetch_related)
     </span>
   </a>
   
@@ -1796,7 +1796,9 @@ class BookSerializer(serializers.Serializer):
 <p>Статья на хабре - <a href="https://habr.com/ru/companies/yandex_praktikum/articles/598349/">Django Rest Framework для начинающих: как работает ModelSerializer</a>
 https://habr.com/ru/companies/yandex_praktikum/articles/598349/</p>
 <hr />
-<h2 id="queryset-select_related-prefetch_related">Как оптимизировать QuerySet? (select_related, prefetch_related)</h2>
+<h2 id="n1-orm-select_related-prefetch_related">Проблема N+1 запросов в ORM? (select_related, prefetch_related)</h2>
+<p>Проблема N+1 запросов возникает, когда приложение сначала выполняет один запрос для получения списка объектов, а затем для каждого объекта выполняет отдельный запрос для получения связанных данных. Вместо одного запроса получается N+1 запросов, где N — количество объектов в выборке.</p>
+<p><strong>Django</strong></p>
 <p><strong>QuerySet</strong> — это фундаментальное понятие в Django, которое представляет собой коллекцию объектов из базы данных.</p>
 <p>QuerySet — это "ленивый" (lazy) объект, который:</p>
 <ul>
@@ -1843,6 +1845,76 @@ books = Book.objects.select_related('author').all()
 
 authors = Author.objects.prefetch_related('book_set').all()
 </code></pre>
+<p><strong>SQLAlchemy ORM-подход (объекты)</strong></p>
+<p><strong>Проблемный код (N+1):</strong></p>
+<pre><code class="language-python">authors = session.query(Author).all()  # 1 запрос
+for author in authors:
+    print(len(author.posts))  # Каждая итерация → новый запрос (N раз)
+</code></pre>
+<p><strong>Решение через joinedload (один запрос с JOIN):</strong></p>
+<pre><code class="language-python">from sqlalchemy.orm import joinedload
+
+authors = session.query(Author).options(
+    joinedload(Author.posts)
+).all()  # 1 запрос с JOIN
+</code></pre>
+<p><strong>Решение через selectinload (два запроса с IN):</strong></p>
+<pre><code class="language-python">from sqlalchemy.orm import selectinload
+
+authors = session.query(Author).options(
+    selectinload(Author.posts)
+).all()  # 2 запроса: авторы + посты WHERE id IN (...)
+</code></pre>
+<p><strong>SQLAlchemy Core-подход (таблицы)</strong></p>
+<p><strong>Проблемный код (N+1):</strong></p>
+<pre><code class="language-python">authors = conn.execute(select(authors)).fetchall()  # 1 запрос
+for author in authors:
+    posts = conn.execute(                         # N запросов
+        select(posts).where(posts.c.author_id == author.id)
+    ).fetchall()
+    print(len(posts))
+</code></pre>
+<p><strong>Решение через JOIN (один запрос):</strong></p>
+<pre><code class="language-python">stmt = select(authors, posts).join(
+    posts, authors.c.id == posts.c.author_id
+)
+rows = conn.execute(stmt).fetchall()  # 1 запрос
+# Группировка данных в Python
+</code></pre>
+<p><strong>Решение через IN (два запроса):</strong></p>
+<pre><code class="language-python">authors = conn.execute(select(authors)).fetchall()  # 1 запрос
+ids = [a.id for a in authors]
+
+posts = conn.execute(
+    select(posts).where(posts.c.author_id.in_(ids))
+).fetchall()  # 2-й запрос
+# Группировка постов по author_id в Python
+</code></pre>
+<p><strong>Сравнение подходов</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Django</th>
+<th>SQLAlchemy ORM</th>
+<th>SQLAlchemy Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Foreign key</strong></td>
+<td><code>select_related</code></td>
+<td><code>joinedload</code></td>
+<td><code>JOIN</code></td>
+</tr>
+<tr>
+<td><strong>Many-to-many</strong></td>
+<td><code>prefetch_related</code></td>
+<td><code>selectinload</code></td>
+<td><code>IN (…)</code></td>
+</tr>
+</tbody>
+</table>
 <p>Статьи на хабре - <a href="https://habr.com/ru/articles/752574/">Как работают select_related и prefetch_related в Django </a>https://habr.com/ru/articles/752574/</p>
 <p><a href="https://habr.com/ru/companies/otus/articles/875384/">Django против N+1 запросов: оптимизация с помощью select_related и prefetch_related</a> https://habr.com/ru/companies/otus/articles/875384/</p>
 <hr />
